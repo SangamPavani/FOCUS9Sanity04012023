@@ -1,0 +1,1299 @@
+﻿var ROWFORMATTING = {
+    m_arrformat: [],
+    m_arrfont: [],
+
+    EnableApplyOnColumnChk: function () {
+        $(ROWFORMATTING.getApplyOnColumnElement()).removeAttr("disabled");
+    },
+
+    AddSetOnColumnOptions: function () {
+        var cusCols = [];
+        var options = null;
+        var setOnColumnEle = null;
+        try {
+            cusCols = ROWFORMATTING.getCustomizeColumns();
+            if (ROWFORMATTING.isCalledFromReportDesigner() == false) {
+                g_ReportCustomizeObject.CustomizeColumns = cusCols;
+            }
+            setOnColumnEle = document.getElementById("id_set_on_column");
+
+            //setting "set on column" dropdown values .
+            //clearing before setting options.
+            COMMON.prototype.setElementText(setOnColumnEle, "");
+            //add an empty option
+            options = document.createElement("option");
+            options.value = 0;
+            options.setAttribute("disabled", "disabled");
+            options.innerText = "";
+            options.selected = 'true';
+            setOnColumnEle.appendChild(options);
+
+            for (var i = 0; i < cusCols.length; i++) {
+                options = document.createElement("option");
+                options.value = cusCols[i].iFieldId;
+                options.innerText = cusCols[i].sName;
+                setOnColumnEle.appendChild(options);
+            }
+            ///disabling elements if row not selected
+            if (ROWFORMATTING.getFilterTextContainerElement().getAttribute("data-selected") == "false") {
+                ROWFORMATTING.DisableFilterConditionElements();
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage(err.message, "EXCEPTION");
+        }
+    },
+
+    DisableFilterConditionElements: function () {
+        try {
+            //disable filter div also
+            $('#id_rd_rowformatting_filtercontrol7').fadeTo('slow', .6);
+            document.getElementById("id_rd_rowformatting_filtercontrol7").style.pointerEvents = "none";
+            document.getElementById("id_rd_rowformatting_filtercontrol7").style.cursor = "not-allowed";
+
+            document.getElementById("id_label_for_condition").value = "";
+            $("#id_set_on_column").attr("disabled", "true");
+            $("#id_label_for_condition").attr("disabled", "true");
+            $("#id_image_for_condition_button").attr("disabled", "true");
+            $("#id_rf_font").attr("disabled", "true");
+            $(ROWFORMATTING.getDontUseAbsoluteValueElement()).attr("disabled", "true");
+            $(ROWFORMATTING.getApplyOnColumnElement()).attr("disabled", "true");
+            //disable image control
+            FATTACHMENTCONTROL.disableControl(ROWFORMATTING.getImageControlElement(), true);
+
+            //clear values as well
+            document.getElementById("id_set_on_column").selectedIndex = -1;
+
+            $(ROWFORMATTING.getDontUseAbsoluteValueElement()).removeAttr("checked");
+            $(ROWFORMATTING.getApplyOnColumnElement()).removeAttr("checked");
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.DisableFilterConditionElements" + err.message, "EXCEPTION");
+        }
+    },
+
+    EnableFilterConditionsElements: function () {
+        //Enable filter Div
+        document.getElementById("id_rd_rowformatting_filtercontrol7").style.pointerEvents = "";
+        document.getElementById("id_rd_rowformatting_filtercontrol7").style.cursor = "pointer";
+        $("#id_set_on_column").removeAttr("disabled");
+        $("#id_label_for_condition").removeAttr("disabled");
+        $("#id_image_for_condition_button").removeAttr("disabled");
+        $("#id_rf_font").removeAttr("disabled");
+        $(ROWFORMATTING.getDontUseAbsoluteValueElement()).removeAttr("disabled");
+        //enable image control
+        FATTACHMENTCONTROL.disableControl(ROWFORMATTING.getImageControlElement(), false);
+    },
+
+    createEmptyRDFilter: function () {
+        var result = null;
+        var RDCustomizationTreeDataObj = {};
+        var RDCustomizationTreeDataObjArr = [];
+        var cusCols = [];
+        try {
+            cusCols = ROWFORMATTING.getCustomizeColumns();
+            for (var i = 0; i < cusCols.length; i++) {
+                RDCustomizationTreeDataObj = {};
+                RDCustomizationTreeDataObj.iFieldId = cusCols[i].iFieldId;
+                RDCustomizationTreeDataObj.iLevel = 1;
+                RDCustomizationTreeDataObj.sName = cusCols[i].sName;
+                RDCustomizationTreeDataObj.iParentId = cusCols[i].iParentId;
+                RDCustomizationTreeDataObj.iSubParentId = cusCols[i].iSubParentId;
+                RDCustomizationTreeDataObj.iDataTypeId = cusCols[i].iDataTypeId;
+                RDCustomizationTreeDataObj.iMasterLink = 0;
+                RDCustomizationTreeDataObjArr.push(RDCustomizationTreeDataObj);
+            }
+            ROWFORMATTING.clearFilterConditionValues();
+            if (cusCols.length < 1) {
+                return;
+            }
+            result = FILTER.createControl(ROWFORMATTING.getFilterId(), ROWFORMATTING.getSubFilterId(), RDCustomizationTreeDataObjArr, null, true, 'Customize');
+            ROWFORMATTING.FilterOnSuccess(true, result);
+            if (ROWFORMATTING.getFilterTextContainerElement().children.length == 0) {
+                ROWFORMATTING.DisableFilterConditionElements();
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.createEmptyRDFilter" + err.message, "Exception");
+        }
+    },
+
+    getNewElementID: function () {
+        var newId = "";
+        var sPrefix = "";
+        var result = null;
+        try {
+            if (ROWFORMATTING.isCalledFromReportDesigner() == true) {
+                sPrefix = "id_rd_rowformatting_";
+            }
+            else {
+                sPrefix = "id_rc_rowformatting_";
+            }
+            result = ROWFORMATTING.getNewId(document.getElementById("id_filter_text").children, sPrefix);
+            if (result.lValue < 1) {
+                var err = {};
+                err.message = result.sValue;
+                throw err;
+            }
+            newId = result.data;
+        }
+        catch (err) {
+            err.message = "Exception: {ROWFORMATTING.getNewElementID} " + err.message;
+            throw err;
+        }
+        return (newId);
+    },
+
+    getNewId: function (eleChildrens, sPrefix) {
+        var child = null;
+        var iCounter = 0;
+        var iLastIndex = 0;
+        var iIndex = 0;
+        var result = null;
+        try {
+            result = COMMON.prototype.getEmptyResultObject();
+            for (iCounter = 0; iCounter < eleChildrens.length; iCounter++) {
+                child = eleChildrens[iCounter];
+                iIndex = parseInt(child.id.substr(sPrefix.length));
+                if (iIndex > iLastIndex) {
+                    iLastIndex = iIndex;
+                }
+            }
+            if (iLastIndex <= 0) {
+                iLastIndex = 1;
+            }
+            else {
+                iLastIndex++;
+            }
+            result.lValue = 1;
+            result.data = sPrefix + iLastIndex;
+        }
+        catch (err) {
+            result.lValue = -1;
+            result.sValue = "{ROWFORMATTING.getNewId} " + err.message;
+        }
+        return (result);
+    },
+
+    onNew_click: function () {
+        var newDivEle = null, newId = null;
+        var childno = 0;
+        var arrformat = null, arrfont = null;
+        var selectFontMsg = document.getElementById("id_selectfont_msg");
+        var selectConditionMsg = document.getElementById("id_selectcondition_msg");
+        var newResource = document.getElementById("id_new_resource");
+        try {
+            //creating new element div in filter text div
+            newDivEle = document.createElement("div");
+            newId = ROWFORMATTING.getNewElementID();
+            newDivEle.setAttribute("id", newId);
+            newDivEle.innerText = newResource.value;
+            newDivEle.style.width = "100%";
+            newDivEle.style.cursor = "pointer";
+            newDivEle.style.marginBottom = "10px";
+            newDivEle.setAttribute("data-selected", "false");
+            ROWFORMATTING.getFilterTextContainerElement().setAttribute("data-selected", "false");
+            newDivEle.setAttribute("onclick", "ROWFORMATTING.onFilterTextRow_Click(this);");
+
+            //create validation for previous row if any 
+            childno = newDivEle.id.substr(newDivEle.id.lastIndexOf('_') + 1) - 2;//2 because 1 for row index starts with 0 and row no with 1 , and 1 for previous row
+            if (childno == -1) {// it is first row and no rows created before
+                ROWFORMATTING.getFilterTextContainerElement().appendChild(newDivEle);
+                return;
+            }
+            else {
+                var formatdata = ROWFORMATTING.getformatdata();
+                arrformat = formatdata.arrformat;
+                arrfont = formatdata.arrfont;
+                // Validations for Font
+                if (arrfont != null) {
+                    if (arrfont.length == 0 || arrfont[childno] == null) {
+                        COMMON.prototype.showMessage("New Row Formatting is already opened", "Error");
+                        return;
+                    }
+                }
+                else {
+                    COMMON.prototype.showMessage(selectFontMsg.value, "Error");
+                    return;
+                }
+                if (arrformat != null && arrformat.length > 0) {
+                    if (arrformat[childno] != null) {
+                        filterValues = arrformat[childno].Conditions;
+                    }
+                    else {
+                        filterValues = FILTER.getFilterValue(ROWFORMATTING.getFilterId(), ROWFORMATTING.getSubFilterId(), 'Customize');
+                        COMMON.prototype.showMessage("New Row Formatting is already opened", "Error");
+                        return;
+                    }
+                }
+                else {
+                    filterValues = FILTER.getFilterValue(ROWFORMATTING.getFilterId(), ROWFORMATTING.getSubFilterId(), 'Customize');
+                }
+                // Validation for Filter Conditions.
+                if (filterValues == null || filterValues.length == 0) {
+                    COMMON.prototype.showMessage(selectConditionMsg.value, "Error");
+                    return;
+                }
+                ROWFORMATTING.getFilterTextContainerElement().appendChild(newDivEle);
+            }
+
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.onNew_click" + err.message, "EXCEPTION");
+        }
+    },
+
+    getformatdata: function () {
+        var formatdata = {};
+        var arrformat = null, arrfont = null;
+        try {
+            if (ROWFORMATTING.isCalledFromReportDesigner() == true) {
+                arrformat = g_ReportObject.arrFormat;
+                arrfont = g_ReportObject.arrFont;
+            }
+            else {
+                arrformat = REPORTCUSTOMIZE.g_objcusmodel.objLayout.RowConditional;
+                arrfont = REPORTCUSTOMIZE.g_objcusmodel.arrFont;
+            }
+            formatdata.arrformat = arrformat;
+            formatdata.arrfont = arrfont;
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.getformatdata" + err.message, "EXCEPTION");
+        }
+        return formatdata;
+    },
+
+    getTreeElementData: function (element) {
+        try {
+            var data = {
+                iFieldId: parseInt(element.getAttribute("ifieldid")),
+                sName: COMMON.prototype.getElementText(element),
+                iDataTypeId: parseInt(ROWFORMATTING.getDataTypeEnumInt(element.getAttribute("data-datatypeid"))),
+                iParentId: parseInt(element.getAttribute("data-parentid")),
+                iSubParentId: parseInt(element.getAttribute("data-subparentid"))
+            };
+            return (data);
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("{ROWFORMATTING.getTreeElementData}" + err.message, "Exception");
+        }
+        return (null);
+    },
+
+    getDataTypeEnumInt: function (sEnum) {
+        var iEnum = 0;
+        switch (sEnum) {
+            case "Text": iEnum = 0; break;
+            case "Number": iEnum = 1; break;
+            case "Boolean": iEnum = 2; break;
+            case "DateTime": iEnum = 3; break;
+            case "Date": iEnum = 4; break;
+            case "Time": iEnum = 5; break;
+            case "Fraction": iEnum = 6; break;
+            case "Picture": iEnum = 7; break;
+            case "StringList": iEnum = 8; break;
+            case "NumberList": iEnum = 9; break;
+            case "DocumentViewer": iEnum = 10; break;
+            case "UpdatedTime": iEnum = 11; break;
+            case "Master": iEnum = 12; break;
+            case "BigNumber": iEnum = 13; break;
+            case "ExternalTable": iEnum = 14; break;
+            case "SmallNumber": iEnum = 15; break;
+            case "TinyNumber": iEnum = 16; break;
+        }
+        return iEnum;
+    },
+
+    ObjectsIsEquivalent: function (obj1, obj2, arrProps) {
+        var propName = "";
+        try {
+            // Create arrays of property names
+            var obj1Props = Object.getOwnPropertyNames(obj1);
+            var obj2Props = Object.getOwnPropertyNames(obj2);
+
+            // If number of properties is different, objects are not equivalent
+
+            for (var i = 0; i < arrProps.length; i++) {
+                propName = obj1Props[i];
+                // If values of same property are not equal,objects are not equivalent
+                if (typeof obj1[propName] == typeof obj2[propName]) {
+                    if (obj1[propName] !== obj2[propName]) {
+                        return false;
+                    }
+                }
+            }
+            // If we made it this far, objects are considered equivalent
+            return true;
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.ObjectsIsEquivalent" + err.message, "EXCEPTION");
+        }
+    },
+
+    setRFDataInRow: function (rowindex) {
+        var cusCols = null;
+        var RDCustomizationTreeDataObj = {};
+        var RDCustomizationTreeDataObjArr = [];
+        var rowno = rowindex + 1;
+        var rowEle = null, previousfiltervalues = null;
+        var arrformat = [];
+        try {
+            if (ROWFORMATTING.isCalledFromReportDesigner() == true) {
+                rowEle = document.getElementById("id_rd_rowformatting_" + rowno);
+            }
+            else {
+                rowEle = document.getElementById("id_rc_rowformatting_" + rowno);
+            }
+            //get filter values , get all filter condition div elements data 
+            filterValues = FILTER.getFilterValue(ROWFORMATTING.getFilterId(), ROWFORMATTING.getSubFilterId(), 'Customize');
+
+            //compare with previous saved filter values , if it is same , or something changed
+            arrformat = ROWFORMATTING.getformatdata().arrformat;
+
+            if (arrformat.length > 0 && arrformat[rowindex] != null) {
+                previousfiltervalues = arrformat[rowindex].Conditions;
+            }
+            ////////////////
+            //compare two filter values objects
+            var isEqual = true;
+            var arrProps = ["CompareText", "CompareValue", "CompareWith", "Conjuction", "DataType", "FieldId", "Operator", "ParentId", "SubParentId"];
+            if (filterValues != null && filterValues.length > 0 && previousfiltervalues && filterValues.length === previousfiltervalues.length) {
+                for (var icounter = 0; icounter < filterValues.length; icounter++) {
+                    isEqual = isEqual && ROWFORMATTING.ObjectsIsEquivalent(filterValues[icounter], previousfiltervalues[icounter], arrProps);
+                }
+            }
+            else {//if both are not of same length , then they are not equal
+                isEqual = false;
+            }
+            if (isEqual == false) {
+                //make query and set in row 
+                if (filterValues != null && filterValues.length > 0) {
+                    ROWFORMATTING.makeQueryFromFilterValues(filterValues, rowEle);
+                    //create format object ,
+                    ROWFORMATTING.createFormatObj(filterValues, rowEle);
+                }
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.setRFDataInRow" + err.message, "EXCEPTION");
+        }
+    },
+
+    onFilterTextRow_Click: function (newDivEle) {//oldname=create_RF_DefaultAndAdvanceFilter
+        var iFilterId = 0;
+        var result = null;
+        var RDCustomizationTreeDataObj = {};
+        var RDCustomizationTreeDataObjArr = [];
+        var cusCols = [];
+        var arrFormat = null;
+        var arrFilter = null;
+        var currentrowindex = 0;
+        var bpassFilter = false;
+        var resultArr = [];
+        var filterTextDiv = document.getElementById("id_filter_text");
+        var lastrowno = null;
+        var newResource = document.getElementById("id_new_resource");
+        try {
+            currentrowindex = $(newDivEle).index();
+            //save the changes in lastselected row 
+            if (filterTextDiv.hasAttribute("data-lastrowno") == true) {
+                lastrowno = parseInt($(filterTextDiv).attr("data-lastrowno"));
+                if (lastrowno != null && lastrowno != currentrowindex) {
+                    ROWFORMATTING.setRFDataInRow(lastrowno);
+                }
+            }
+            //update the lastselected row to current row
+            $(filterTextDiv).attr("data-lastrowno", currentrowindex);
+            //apply border to the selected new element and deselect previous selected element
+            for (var i = 0; i < newDivEle.parentElement.children.length; i++) {
+                if (newDivEle.parentElement.children[i].getAttribute("data-selected") === "true") {
+                    newDivEle.parentElement.children[i].style.color = "#414141 ";
+                    $(newDivEle.parentElement.children[i]).removeClass("theme_color-inverse");
+                    newDivEle.parentElement.children[i].setAttribute("data-selected", "false");
+                    newDivEle.parentElement.setAttribute("data-selected", "false");
+                }
+            }
+            newDivEle.setAttribute("data-selected", "true");
+            newDivEle.parentElement.setAttribute("data-selected", "true");
+            // newDivEle.style.color = GLOBAL.getThemeColor();
+            $(newDivEle).addClass("theme_color-inverse");
+            //Enabling Filter Conditions Elements on selecting "new".
+            ROWFORMATTING.EnableFilterConditionsElements();
+            cusCols = ROWFORMATTING.getCustomizeColumns();
+            if (cusCols.length < 1) {
+                COMMON.prototype.showMessage("select some column(s)", "Error");
+                return;
+            }
+            for (i = 0; i < cusCols.length; i++) {
+                RDCustomizationTreeDataObj = {};
+                RDCustomizationTreeDataObj.iFieldId = cusCols[i].iFieldId;
+                RDCustomizationTreeDataObj.iLevel = 1;
+                RDCustomizationTreeDataObj.sName = cusCols[i].sName;
+                RDCustomizationTreeDataObj.iParentId = cusCols[i].iParentId;
+                RDCustomizationTreeDataObj.iSubParentId = cusCols[i].iSubParentId;
+                RDCustomizationTreeDataObj.iDataTypeId = cusCols[i].iDataTypeId;
+                RDCustomizationTreeDataObj.iMasterLink = 0;
+                RDCustomizationTreeDataObjArr.push(RDCustomizationTreeDataObj);
+            }
+            //setting RowFormatting saved values.
+            if (ROWFORMATTING.isCalledFromReportDesigner() == false) { // For report customize
+                g_ReportCustomizeObject.arrFormat = REPORTCUSTOMIZE.g_objcusmodel.objLayout.RowConditional;     //value are comming from DB.
+            }
+            iFilterId = ROWFORMATTING.getFilterId();
+            if (newDivEle.innerText == newResource.value) {
+                ROWFORMATTING.clearFilterConditionValues();
+                result = FILTER.createControl(iFilterId, ROWFORMATTING.getSubFilterId(), RDCustomizationTreeDataObjArr, null, true, 'Customize');
+                ROWFORMATTING.FilterOnSuccess(true, result);
+                ROWFORMATTING.getApplyOnColumnElement().setAttribute("disabled", "true");
+            }
+            else {
+                if (ROWFORMATTING.isCalledFromReportDesigner() == true) { // From report designer
+                    arrFormat = g_ReportObject.arrFormat;
+                }
+                else {
+                    arrFormat = g_ReportCustomizeObject.arrFormat;
+                }
+                if (arrFormat.length > 0) {
+                    //check if all the columns in filter condition are present in cuscols or not ,
+                    for (var i = 0; i < arrFormat[currentrowindex].Conditions.length; i++) {
+                        result = ($.grep(cusCols, function (e) {
+                            if (e.iFieldId == arrFormat[currentrowindex].Conditions[i].FieldId) {
+                                return true;
+                            }
+                        }));
+                        if (result.length === 1 || result.length > 1) {
+                            resultArr.push(result[0]);
+                        }
+                        //if all the columns in condition are present ,i.e, neither of them is deleted
+                        if (resultArr.length === arrFormat[currentrowindex].Conditions.length) {
+                            bpassFilter = true;
+                        }
+                        else {
+                            bpassFilter = false;
+                        }
+                    }
+                }
+
+                if (bpassFilter == true) {
+                    //setting already selected values 
+                    if (ROWFORMATTING.isCalledFromReportDesigner() == false) {
+                        arrFormat[currentrowindex].Font = REPORTCUSTOMIZE.g_objcusmodel.arrFont[currentrowindex];
+                    }
+                    else {
+                        arrFormat[currentrowindex].Font = g_ReportObject.arrFont[currentrowindex];
+                        this.m_arrfont = g_ReportObject.arrFont;
+                    }
+                    arrFilter = arrFormat[currentrowindex].Conditions;
+                    FILTER.setFilter(iFilterId, ROWFORMATTING.getSubFilterId(), arrFilter, 'Customize');
+                }
+                else {
+                    COMMON.prototype.setElementText(newDivEle, newResource.value);
+                    result = FILTER.createControl(iFilterId, ROWFORMATTING.getSubFilterId(), RDCustomizationTreeDataObjArr, null, true, 'Customize');
+                    ROWFORMATTING.FilterOnSuccess(true, result);
+                }
+                //Enable all elements
+                ROWFORMATTING.EnableFilterConditionsElements();
+                //setting other values
+                if (arrFormat.length > currentrowindex) {
+                    ROWFORMATTING.getLabelForConditionElement().value = arrFormat[currentrowindex].LabelText;
+                    ROWFORMATTING.getDontUseAbsoluteValueElement().checked = arrFormat[currentrowindex].DontUseAbsoluteValue;
+                    ROWFORMATTING.getApplyOnColumnElement().checked = arrFormat[currentrowindex].IsApplyOnColumn;
+                    document.getElementById("id_set_on_column").value = arrFormat[currentrowindex].SetColumnId;
+                }
+                if (arrFormat.length > currentrowindex && FCommon.String.isNullOrEmpty(arrFormat[currentrowindex].LabelImage) == false) {
+                    FATTACHMENTCONTROL.setData(ROWFORMATTING.getImageControlElement(), "temp.jpg", "", arrFormat[currentrowindex].LabelImage.join());
+                }
+                else {
+                    FATTACHMENTCONTROL.clear(ROWFORMATTING.getImageControlElement());
+                }
+                if (document.getElementById("id_set_on_column").selectedIndex == -1 || document.getElementById("id_set_on_column").selectedIndex == 0) {
+                    ROWFORMATTING.getApplyOnColumnElement().setAttribute("disabled", "true");
+                }
+                else {
+                    ROWFORMATTING.getApplyOnColumnElement().removeAttribute("disabled");
+                }
+            }
+            //enable filter div 
+            document.getElementById("id_rd_rowformatting_filtercontrol7").style.opacity = "1";
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.onFilterTextRow_Click " + err.message, "Error");
+        }
+    },
+
+    FilterOnSuccess: function (bSuccess, data) {
+        if (bSuccess == false) {
+            return;
+        }
+        var filterControldiv = null;
+        filterControldiv = document.getElementById("id_rd_rowformatting_filtercontrol7");
+        $(filterControldiv).html(data);
+    },
+
+    onDelete_click: function () {
+        var SeldivEle = document.getElementById("id_filter_text");
+        var mainDiv = SeldivEle.children;
+        var selIndex = -1;
+        var isfromRD = false;
+        try {
+            debugger
+            if (mainDiv.length > 0) {
+                var count = 0;
+                for (var i = 0; i < mainDiv.length; i++) {
+                    var bool = mainDiv[i].getAttribute("data-selected")
+                    if (bool) {
+                        count++
+                        break;
+                    }
+                }
+                if (count == 0) {
+                    return;
+                }
+            }
+            else {
+                return;
+            }
+            if (!confirm("Do you want to Delete!")) {
+                return;
+            }
+            //Text list in the form of children from this id id_filter_text
+            for (var i = 0; i < SeldivEle.children.length; i++) {
+                if (SeldivEle.children[i].getAttribute("data-selected") === "true") {
+                    SeldivEle.removeChild(SeldivEle.children[i]);
+                    selIndex = i;
+                    break;
+                }
+            }
+            if (selIndex == -1) {//not selected any filter text row
+                return;
+            }
+
+            isfromRD = ROWFORMATTING.isCalledFromReportDesigner()
+
+            if (isfromRD == false) {//ReportCustomize-RowFormatting
+                if (this.m_arrformat == null || this.m_arrformat.length < 1) {
+                    this.m_arrformat = JSON.parse(JSON.stringify(g_ReportCustomizeObject.arrFormat));
+                }
+                if (this.m_arrfont == null || this.m_arrfont.length < 1) {
+                    this.m_arrfont = JSON.parse(JSON.stringify(REPORTCUSTOMIZE.g_objcusmodel.arrFont));
+                    //for (var ele in this.m_arrfont) {
+                    //    delete this.m_arrfont[ele];
+                    //}
+                    //this.m_arrfont = null;
+                    REPORTCUSTOMIZE.g_objcusmodel.arrFont = this.m_arrfont;
+                }
+            }
+            else {//ReportDesigner-RowFormatting
+                this.m_arrformat = JSON.parse(JSON.stringify(g_ReportObject.arrFormat));
+                this.m_arrfont = JSON.parse(JSON.stringify(g_ReportObject.arrFont));
+            }
+            if (this.m_arrformat != null && this.m_arrformat.length > 0 && this.m_arrfont != null && this.m_arrfont.length > 0) {
+                this.m_arrformat.splice(selIndex, 1);//removes one element from posititon i
+                this.m_arrfont.splice(selIndex, 1);
+            }
+
+            if (ROWFORMATTING.getFilterId() != 0) {
+                FILTER.Clear(ROWFORMATTING.getFilterId(), ROWFORMATTING.getSubFilterId(), false);
+
+                ROWFORMATTING.createEmptyRDFilter();
+            }
+            ROWFORMATTING.DisableFilterConditionElements();
+            if (FCommon.UI.isValidObject(window.REPORTCUSTOMIZE) == true) {
+                if (this.m_arrfont)
+                    REPORTCUSTOMIZE.g_objcusmodel.arrFont = this.m_arrfont.slice(0);
+                if (this.m_arrformat)
+                    REPORTCUSTOMIZE.g_objcusmodel.objLayout.RowConditional = g_ReportCustomizeObject.arrFormat = this.m_arrformat.slice(0);
+            }           
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.onDelete_click" + err.message, "EXCEPTION");
+        }
+    },
+
+    onOk_Click: function () {
+        debugger
+        var selectedNewEle = null, eleFilterTextContainer = null, arrFontObj = null;
+        var filterValues = [];
+        var iFilterId = 0;
+        var selectFontMsg = document.getElementById("id_selectfont_msg");
+        var selectConditionMsg = document.getElementById("id_selectcondition_msg");
+        var childno = -1;
+        var popupEle = ROWFORMATTING.getRowFormattingModalElement();
+        var isFromRD = false, isSetQuery = false;
+        try {
+            iFilterId = ROWFORMATTING.getFilterId();
+            eleFilterTextContainer = ROWFORMATTING.getFilterTextContainerElement();
+            if (eleFilterTextContainer && eleFilterTextContainer.children) {
+                //retrieving selected new element .
+                for (var i = 0; i < eleFilterTextContainer.children.length; i++) {
+                    if (eleFilterTextContainer.children[i].getAttribute("data-selected") === "true") {
+                        selectedNewEle = eleFilterTextContainer.children[i];
+                        break;
+                    }
+                }
+            }
+            else {
+                return;
+            }
+            isFromRD = ROWFORMATTING.isCalledFromReportDesigner();
+            if (selectedNewEle != null) {
+                childno = $(selectedNewEle).index();
+            }
+            else {//clicking ok when no filter text row is selected
+                if (isFromRD == false) {//Report/Transaction Customize
+                    if (popupEle != null) {
+                        if (this.m_arrformat && g_ReportCustomizeObject && g_ReportCustomizeObject.arrFormat && this.m_arrfont && REPORTCUSTOMIZE.g_objcusmodel.arrFont) {
+                            if (this.m_arrformat.length > 0 && this.m_arrfont.length > 0) {
+                                if (this.m_arrformat.length != g_ReportCustomizeObject.arrFormat.length) {
+                                    g_ReportCustomizeObject.arrFormat = this.m_arrformat;
+                                    REPORTCUSTOMIZE.g_objcusmodel.objLayout.RowConditional = this.m_arrformat;
+                                }
+                                if (this.m_arrfont.length != REPORTCUSTOMIZE.g_objcusmodel.arrFont.length) {
+                                    REPORTCUSTOMIZE.g_objcusmodel.arrFont = this.m_arrfont;
+                                }
+                            }
+                        }
+                    }
+                    $(popupEle).modal('hide');
+                }
+                else { //Report Designer screen
+                    if (this.m_arrformat && g_ReportObject && g_ReportObject.arrFormat && this.m_arrfont && g_ReportObject.arrFont) {
+                        if (this.m_arrformat.length != g_ReportObject.arrFormat.length) {
+                            g_ReportObject.arrFormat = this.m_arrformat;
+                            RD_ENTRY.m_arrFormat = g_ReportObject.arrFormat;
+                        }
+                        if (this.m_arrfont.length != g_ReportObject.arrFont.length) {
+                            g_ReportObject.arrFont = this.m_arrfont;
+                            RD_ENTRY.m_arrFont = g_ReportObject.arrFont;
+                        }
+                    }
+                    return;
+                }
+            }
+            filterValues = FILTER.getFilterValue(iFilterId, ROWFORMATTING.getSubFilterId(), 'Customize');
+
+            if (filterValues && filterValues.length > 0) {
+                isSetQuery = ROWFORMATTING.makeQueryFromFilterValues(filterValues, selectedNewEle);
+            }
+
+            if (isFromRD == false) {//For ReportCustomize screen
+                //Validation for Font
+                if (g_ReportCustomizeObject.arrFormat != null && g_ReportCustomizeObject.arrFormat.length > 0) {
+                    if (g_ReportCustomizeObject.arrFormat[childno] != undefined) {
+                        if (g_ReportCustomizeObject.arrFormat[childno].Font == null || g_ReportCustomizeObject.arrFormat[childno].Font.length == 0) {
+                            COMMON.prototype.showMessage(REPORTCUSTOMIZE.g_objcusmodel.ResourcesMessages.MustSelectFont, "Error");
+                            return;
+                        }
+                    }
+                }
+                if (REPORTCUSTOMIZE.g_objcusmodel) {
+                    if (childno > -1) {
+                        if (REPORTCUSTOMIZE.g_objcusmodel.arrFont && REPORTCUSTOMIZE.g_objcusmodel.arrFont.length > 0) {
+                            if (REPORTCUSTOMIZE.g_objcusmodel.arrFont[childno] == undefined) {
+                                COMMON.prototype.showMessage(REPORTCUSTOMIZE.g_objcusmodel.ResourcesMessages.MustSelectFont, "Error");
+                                return;
+                            }
+                        }
+                        else {
+                            COMMON.prototype.showMessage(REPORTCUSTOMIZE.g_objcusmodel.ResourcesMessages.MustSelectFont, "Error");
+                            return;
+                        }
+                    }
+                }
+            }
+            else {
+                arrFontObj = RD_ENTRY.m_arrFont;
+                if (arrFontObj == null || arrFontObj.length == 0 || arrFontObj[childno] == null) {
+                    arrFontObj = RD_ENTRY.m_arrFont = g_ReportObject.arrFont;
+                }
+                if (arrFontObj != null) {
+                    if (arrFontObj.length == 0 || arrFontObj[childno] == null) {
+                        COMMON.prototype.showMessage(selectFontMsg.value, "Error");
+                        return;
+                    }
+                }
+                else {
+                    COMMON.prototype.showMessage(selectFontMsg.value, "Error");
+                    return;
+                }
+            }
+            //Do Validation , only if it has any rows selected
+            if (childno > -1) {
+                // Validation for Filter Conditions.
+                if (filterValues == null || filterValues.length == 0 || filterValues[0].CompareValue == "") {
+                    COMMON.prototype.showMessage(selectConditionMsg.value, "Error");
+                    return;
+                }
+                else {
+                    ROWFORMATTING.createFormatObj(filterValues, selectedNewEle);
+                    if (isSetQuery == true) {
+                        // COMMON.prototype.showMessage("Query saved successfully", "Message");
+                        selectedNewEle.setAttribute("data-saved", "yes");
+                        $(popupEle).modal('hide');
+                    }
+                }
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("{ROWFORMATTING.onOk_Click}" + err.message, "EXCEPTION");
+        }
+    },
+
+    createFormatObj: function (filterValuesArr, filterTextRowEle) {
+        debugger
+        var eleFilterTextContainer = null;
+        //_Reports -> _Layout -> _Format structure.
+        var FormatObj = {};
+        var imagectrl = FATTACHMENTCONTROL.getData(ROWFORMATTING.getImageControlElement());
+        var setOnColumnEle = document.getElementById("id_set_on_column");
+        var selectedNewEle = null;
+        var newResource = document.getElementById("id_new_resource");
+        eleFilterTextContainer = ROWFORMATTING.getFilterTextContainerElement();
+        if (filterTextRowEle != null) {
+            selectedNewEle = filterTextRowEle;
+        }
+        else {
+            for (var i = 0; i < eleFilterTextContainer.children.length; i++) {
+                if (eleFilterTextContainer.children[i].getAttribute("data-selected") === "true") {
+                    selectedNewEle = eleFilterTextContainer.children[i];
+                }
+            }
+        }
+        //To avoid duplicate entries.
+        var indexToInsert = $(selectedNewEle).index();
+        var prevarrFont = undefined;
+        if (ROWFORMATTING.isCalledFromReportDesigner() == true) {//Report Designer screen
+            if (document.getElementById("id_rd_rowformatting_fontcontrol7").children.length > 0 && (selectedNewEle.innerHTML == "New" || selectedNewEle.innerHTML != "New")) {
+                FormatObj.Font = FONTDIALOG.getFontData("id_rd_rowformatting_fontcontrol7");
+                RD_ENTRY.m_arrFont.splice(indexToInsert, 1, FormatObj.Font);
+            }
+            else {
+                FormatObj.Font = this.m_arrfont[indexToInsert];
+                RD_ENTRY.m_arrFont = this.m_arrfont
+            }
+        }
+        else {
+            //means change in new when Font window is opening
+            if (document.getElementById("id_rc_rowformatting_fontcontrol7").children.length > 0 && selectedNewEle.innerHTML == newResource.value) {
+                FormatObj.Font = FONTDIALOG.getFontData("id_rc_rowformatting_fontcontrol7");
+            }
+            else if (document.getElementById("id_rc_rowformatting_fontcontrol7").children.length > 0 && selectedNewEle.innerHTML != newResource.value) {
+                FormatObj.Font = FONTDIALOG.getFontData("id_rc_rowformatting_fontcontrol7");
+            }
+            else if (g_ReportCustomizeObject.arrFormat.length > 0 && selectedNewEle.innerHTML != newResource.value) {
+                prevarrFont = g_ReportCustomizeObject.arrFormat[indexToInsert].Font;
+            }
+        }
+        FormatObj.Conditions = filterValuesArr;
+        FormatObj.DontUseAbsoluteValue = ROWFORMATTING.getDontUseAbsoluteValueElement().checked;
+        FormatObj.FormattingType = 0;
+        FormatObj.IsApplyOnColumn = ROWFORMATTING.getApplyOnColumnElement().checked;
+        FormatObj.LabelText = ROWFORMATTING.getLabelForConditionElement().value;
+        FormatObj.SetColumnId = parseInt(setOnColumnEle.options[setOnColumnEle.selectedIndex].value);
+        if (prevarrFont != undefined) {
+            FormatObj.Font = prevarrFont;
+        }
+        // _Report Object 
+        //removes element at indexToInsert and insert FormatObj at its place
+        if (ROWFORMATTING.isCalledFromReportDesigner() == true) {
+            if (imagectrl.lValue > 0) {
+                FormatObj.sLabelImage = imagectrl.data.data.join(",");
+            }
+            RD_ENTRY.m_arrFormat.splice(indexToInsert, 1, FormatObj);
+            // ROWFORMATTING.m_arrformat.splice(indexToInsert, 1, FormatObj);
+            ROWFORMATTING.m_arrformat = RD_ENTRY.m_arrFormat;
+        }
+        else {
+            if (imagectrl.lValue > 0) {
+                FormatObj.LabelImage = imagectrl.data.data;
+            }
+            g_ReportCustomizeObject.arrFormat.splice(indexToInsert, 1, FormatObj);//since previous object is already deleted 
+            ROWFORMATTING.m_arrformat.splice(indexToInsert, 1, FormatObj);
+        }
+    },
+
+    clearFilterConditionValues: function () {
+        var setOnColumnEle = document.getElementById("id_set_on_column");
+        setOnColumnEle.selectedIndex = 0;
+        ROWFORMATTING.getLabelForConditionElement().value = "";
+        FATTACHMENTCONTROL.clear(ROWFORMATTING.getImageControlElement());
+        ROWFORMATTING.getDontUseAbsoluteValueElement().checked = false;
+        ROWFORMATTING.getApplyOnColumnElement().checked = false;
+    },
+
+    setRDRowFormattingData: function (arrFormat) {
+        var eleFilterTextContainer = null, newDivEle = null, newId = null, filterValues = null;
+        var newResource = document.getElementById("id_new_resource");
+        try {
+            eleFilterTextContainer = ROWFORMATTING.getFilterTextContainerElement();
+            FCommon.UI.removeChildren(eleFilterTextContainer);
+            if (ROWFORMATTING.isCalledFromReportDesigner() == true) {
+                arrFormat = RD_ENTRY.m_arrFormat;
+                if (arrFormat == null || arrFormat.length == 0) {
+                    arrFormat = g_ReportObject.arrFormat;
+                }
+            }
+            else {
+                if (arrFormat == null || arrFormat.length == 0) {
+                    arrFormat = g_ReportCustomizeObject.arrFormat;
+                    return;
+                }
+            }
+            for (var iCounter = 0; iCounter < arrFormat.length; iCounter++) {
+                //creating new element div in filter text div
+                newDivEle = document.createElement("div");
+                newId = ROWFORMATTING.getNewElementID();
+                newDivEle.setAttribute("id", newId);
+                newDivEle.innerText = newResource.value;
+                newDivEle.style.width = "100%";
+                newDivEle.style.cursor = "pointer";
+                newDivEle.style.marginBottom = "10px";
+                newDivEle.setAttribute("data-selected", "false");
+                eleFilterTextContainer.setAttribute("data-selected", "false");
+                newDivEle.setAttribute("onclick", "ROWFORMATTING.onFilterTextRow_Click(this);");
+                eleFilterTextContainer.appendChild(newDivEle);
+                filterValues = arrFormat[iCounter].Conditions;
+                this.makeQueryFromFilterValues(filterValues, newDivEle);
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("{ROWFORMATTING.setRDRowFormattingData}" + err.message, "EXCEPTION");
+        }
+    },
+
+    makeQueryFromFilterValues: function (filterValues, selectedRow) {
+        var queryString_ConjuctionVal = [], queryString_FieldVal = [], queryString_Operator = [];
+        var queryString_CompareWith = [], queryString_CompareValue = [], cusCols = [];
+        var span = null;
+        var isSetQuery = false;
+        var datevalue = "";
+        var newResource = document.getElementById("id_new_resource");
+        try {
+            if (filterValues != null && filterValues.length != 0) {
+                for (var i = 0; i < filterValues.length; i++) {
+                    //Conjuction selected value
+                    switch (filterValues[i].Conjuction) {
+                        case 0: queryString_ConjuctionVal.push("WHERE"); break;
+                        case 1: queryString_ConjuctionVal.push("WHERE("); break;
+                        case 2: queryString_ConjuctionVal.push("AND"); break;
+                        case 3: queryString_ConjuctionVal.push("AND("); break;
+                        case 4: queryString_ConjuctionVal.push(")AND"); break;
+                        case 5: queryString_ConjuctionVal.push(")AND("); break;
+                        case 6: queryString_ConjuctionVal.push("OR"); break;
+                        case 7: queryString_ConjuctionVal.push("OR("); break;
+                        case 8: queryString_ConjuctionVal.push(")OR"); break;
+                        case 9: queryString_ConjuctionVal.push(")OR("); break;
+                        case 10: queryString_ConjuctionVal.push(")"); break;
+                        case 11: queryString_ConjuctionVal.push("ONLY"); break;
+                    }
+                    ////Field selected value
+                    cusCols = ROWFORMATTING.getCustomizeColumns();
+                    for (var j = 0; j < cusCols.length; j++) {
+                        if (cusCols[j].iFieldId == filterValues[i].FieldId) {
+                            queryString_FieldVal.push(cusCols[j].sName);
+                            break;
+                        }
+                    }
+                    //compare value entered
+                    if (filterValues[i].FieldId == 2 || filterValues[i].DataType == 4) {////field Id = 2 for Date fields
+                        datevalue = DATE.prototype.getDayFromFocusDate(filterValues[i].CompareValue) + "-";
+                        datevalue += DATE.prototype.getMonthFromFocusDate(filterValues[i].CompareValue) + "-";
+                        datevalue += DATE.prototype.getYearFromFocusDate(filterValues[i].CompareValue);
+                    }
+                    else {
+                        queryString_CompareValue.push(filterValues[i].CompareValue);
+                    }
+                    //Operator selected value
+                    switch (filterValues[i].Operator) {
+                        case 0: queryString_Operator.push("="); break;
+                        case 1: queryString_Operator.push("!="); break;
+                        case 2: queryString_Operator.push("<"); break;
+                        case 3: queryString_Operator.push(">"); break;
+                        case 4: queryString_Operator.push("<="); break;
+                        case 5: queryString_Operator.push(">="); break;
+                        case 6: queryString_Operator.push("="); break;
+                        case 7: queryString_Operator.push("<>"); break;
+                        case 8://BeginsWith
+                            queryString_Operator.push("LIKE");
+                            queryString_CompareValue[i] = filterValues[i].CompareValue + "%";
+                            break;
+                        case 9: //DoesNotBeginWith
+                            queryString_Operator.push("NOT LIKE");
+                            queryString_CompareValue[i] = filterValues[i].CompareValue + "%";
+                            break;
+                        case 10: //Contains
+                            queryString_Operator.push("LIKE");
+                            queryString_FieldVal[i] = "LOWER(" + queryString_FieldVal[i] + ")";
+                            queryString_CompareValue[i] = "LOWER(\'%" + queryString_CompareValue[i] + "%\')";
+                            break;
+                        case 11: queryString_Operator.push("NOT LIKE"); break;
+                        case 12: queryString_Operator.push("EndWith"); break;
+                    }
+
+                }
+                COMMON.prototype.setElementText(selectedRow, "");//clear new div element before setting query values.
+                //setting advance filter queries to selected new div element    
+                for (var k = 0; k < queryString_ConjuctionVal.length; k++) {
+                    span = document.createElement("span");
+                    if (selectedRow.innerText == newResource.value) {
+                        COMMON.prototype.setElementText(selectedRow, "");
+                    }
+                    if (filterValues[k].FieldId == 2 || filterValues[k].DataType == 4) { // field id = 2 for date 
+                        span.innerText = queryString_ConjuctionVal[k] + " " + queryString_FieldVal[k] + " " + queryString_Operator[k] + " " + "\'" + datevalue + "\'" + " .";
+                    }
+                    else if (filterValues[k].Operator == 10) {//8 for BeginsWith
+                        span.innerText = queryString_ConjuctionVal[k] + " " + queryString_FieldVal[k] + " " + queryString_Operator[k] + " " + queryString_CompareValue[k] + " .";
+                    }
+                    else {
+                        span.innerText = queryString_ConjuctionVal[k] + " " + queryString_FieldVal[k] + " " + queryString_Operator[k] + " " + "\'" + queryString_CompareValue[k] + "\'" + " .";
+                    }
+                    $(span).children().remove();
+                    selectedRow.appendChild(span);
+                }
+                $(span).append("<br/>")
+                if (queryString_ConjuctionVal.length < 1) {
+                    COMMON.prototype.setElementText(selectedRow, newResource.value);
+                }
+                else {
+                    isSetQuery = true;
+                }
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("{ROWFORMATTING.makeQueryFromFilterValues}" + err.message, "Error");
+        }
+        return isSetQuery;
+    },
+
+    clear: function () {
+        var setOnColumnEle = document.getElementById("id_set_on_column");
+        if (ROWFORMATTING.isCalledFromReportDesigner() == true) {
+            //close functionality of rowformatting in RD
+            $('#id_filter_text').empty();
+            $('#id_rd_rowformatting_filtercontrol7').empty();
+            setOnColumnEle.value = 0;
+            ROWFORMATTING.getLabelForConditionElement().value = "";
+            ROWFORMATTING.getDontUseAbsoluteValueElement().checked = false;
+            ROWFORMATTING.getApplyOnColumnElement().checked = false;
+            ROWFORMATTING.getApplyOnColumnElement().setAttribute("disabled", "true");
+            $("#id_set_on_column").attr("disabled", "true");
+            $("#id_label_for_condition").attr("disabled", "true");
+            $("#id_image_for_condition_button").attr("disabled", "true");
+            $("#id_rf_font").attr("disabled", "true");
+            $(ROWFORMATTING.getDontUseAbsoluteValueElement()).attr("disabled", "true");
+            //clear image control value
+            FATTACHMENTCONTROL.clear(ROWFORMATTING.getImageControlElement());
+        }
+        else {
+            $('#id_filter_text').empty();
+            $('#id_rc_rowformatting_filtercontrol7').empty();
+            $('#id_report_customize_rowformatting_popup').modal('hide');
+        }
+    },
+
+    onSelectFile: function (id, file, evt) {
+        var sExt = "";
+        var iFieldId = 0;
+        var iIndex = 0;
+        var bValid = false;
+        try {
+            bValid = true;
+            sExt = FCommon.Files.getExtensionFromName(file.name);
+            sExt = sExt.toLowerCase();
+            if (FCommon.String.isNullOrEmpty(sExt) == true) {
+                bValid = false;
+            }
+            else if (sExt != "gif" && sExt != "bmp" && sExt != "png" && sExt != "jpg" && sExt != "jpeg" && sExt != "ico") {
+                bValid = false;
+            }
+
+            if (bValid == false) {
+                COMMON.prototype.showMessage("Only (.gif, .bmp, .png, .jpg, .jpeg, .ico) extension type files allowed.", "ERROR");
+            }
+
+            FUIElement.setFocus(id);
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("Exception: {TRANSACTION_ENTRY.BODY.onSelectFile} " + err.message, "Exception");
+        }
+        return (bValid);
+    },
+
+    triggerFontModal: function () {
+        debugger
+        RD_ENTRY.bDefaultFontFlag = false;
+        var result = null, x = null, rowDivEle = null, eleFilterTextContainer = null;
+        var childNo = null, arrObjFont = null;
+        var newResource = document.getElementById("id_new_resource");
+        try {
+            eleFilterTextContainer = ROWFORMATTING.getFilterTextContainerElement();
+            if (eleFilterTextContainer.children.length > 0) {
+                for (var i = 0; i < eleFilterTextContainer.children.length; i++) {
+                    if (eleFilterTextContainer.children[i].getAttribute("data-selected") == "true") {
+                        rowDivEle = eleFilterTextContainer.children[i];
+                        break;
+                    }
+                }
+                childNo = $(rowDivEle).index();
+                if (ROWFORMATTING.isCalledFromReportDesigner() == false) {//For ReportCustomize
+                    if (REPORTCUSTOMIZE.g_objcusmodel.arrFont != null && REPORTCUSTOMIZE.g_objcusmodel.arrFont.length > 0) {
+                        arrObjFont = REPORTCUSTOMIZE.g_objcusmodel.arrFont;
+                    }
+                    if (arrObjFont != null && arrObjFont[childNo] != null) {
+                        x = FONTDIALOG.createControl("id_rc_rowformatting_fontcontrol7", arrObjFont[childNo]);
+                    }
+                    else {
+                        x = FONTDIALOG.createControl("id_rc_rowformatting_fontcontrol7", null);
+                    }
+                    $("#id_rc_rowformatting_fontcontrol7").html(x);
+                    $('#RC_RF_ModalFont').modal('show');
+
+                }
+                else {//Report Designer screen
+                    if (rowDivEle.innerText == newResource.value) {
+                        x = FONTDIALOG.createControl("id_rd_rowformatting_fontcontrol7", null);
+                    }
+                    else {
+                        if (g_ReportObject.arrFont != null && g_ReportObject.arrFont.length > 0) {
+                            arrObjFont = g_ReportObject.arrFont;
+                        }
+                        if (arrObjFont.length > 0 && arrObjFont[childNo] != undefined) {
+                            x = FONTDIALOG.createControl("id_rd_rowformatting_fontcontrol7", arrObjFont[childNo]);
+                        }
+                        else {
+                            x = FONTDIALOG.createControl("id_rd_rowformatting_fontcontrol7", null);
+                        }
+                    }
+                    $("#id_rd_rowformatting_fontcontrol7").html(x);
+                    $('#RDModalFont').modal('show');
+
+                }
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.triggerFontModal " + err.message, "EXCEPTION");
+        }
+    },
+
+    CallFromReportCustomizeFontModal: function () {
+        debugger
+        try {
+            RD_ENTRY.bDefaultFontFlag = true;
+            var ObjFont = null;
+            if (REPORTCUSTOMIZE.g_objcusmodel.DefaultFont != null) {
+                ObjFont = REPORTCUSTOMIZE.g_objcusmodel.DefaultFont;
+            }
+            var x = FONTDIALOG.createControl("id_rc_colformatting_fontcontrol7", ObjFont);
+            $("#id_rc_colformatting_fontcontrol7").html(x);
+            $('#RC_CF_ModalFont').modal('show');
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.triggerFontModal " + err.message, "EXCEPTION");
+        }
+    },
+    CallFontModal: function () {
+        debugger
+        try {
+            var ObjFont = null;
+            RD_ENTRY.bDefaultFontFlag = true;
+            if (g_ReportObject.DefaultFont != null ) {
+                ObjFont = g_ReportObject.DefaultFont;
+            }
+            var x = FONTDIALOG.createControl("id_rd_rowformatting_fontcontrol7", ObjFont);
+            $("#id_rd_rowformatting_fontcontrol7").html(x);
+            $('#RDModalFont').modal('show');
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.triggerFontModal " + err.message, "EXCEPTION");
+        }
+    },
+    saveFontData: function () {
+        debugger
+        var FontClassObj = null, selectedElement = null, indexToInsert = null;
+        var ColInd = 0;
+        try {
+            if (ROWFORMATTING.isCalledFromReportDesigner() == true) {//For ReportDesigner screen
+                FontClassObj = FONTDIALOG.getFontData("id_rd_rowformatting_fontcontrol7");
+                if (RD_ENTRY.bDefaultFontFlag == true) {
+                    g_ReportObject.DefaultFont = FontClassObj;
+                    $('#RDModalFont').modal('hide');
+                    return;
+                }
+            }
+            else if (ROWFORMATTING.isCalledFromReportCustomization() == true) {//For ReportDesigner screen
+                FontClassObj = FONTDIALOG.getFontData("id_ReportCustomModalFont_fontcontrol7");
+                if (RD_ENTRY.bDefaultFontFlag == true) {
+                    REPORTCUSTOMIZE.g_objcusmodel.objLayout.BodyFont = FontClassObj
+                    //g_ReportObject.DefaultFont = FontClassObj;
+                    return;
+                }
+            }
+            else {
+                FontClassObj = FONTDIALOG.getFontData("id_rc_rowformatting_fontcontrol7");
+            }
+            if (FontClassObj.enableFont == false) {
+                $('#RC_RF_ModalFont').modal('hide');
+                return null;
+            }
+            else {
+                selectedElement = ($.grep(ROWFORMATTING.getFilterTextContainerElement().children, function (e) {
+                    return e.getAttribute("data-selected") == "true";
+                }));
+                indexToInsert = selectedElement[0].id.substr(selectedElement[0].id.lastIndexOf('_') + 1) - 1;
+                if (ROWFORMATTING.isCalledFromReportDesigner() == true) {//For ReportDesigner screen
+                    FontClassObj = FONTDIALOG.getFontData("id_rd_rowformatting_fontcontrol7");
+                    if (g_ReportObject.arrFont != undefined) {
+                        g_ReportObject.arrFont.splice(indexToInsert, 1, FontClassObj);
+                    }
+                    else {
+                        g_ReportObject.arrFont = [];
+                        g_ReportObject.arrFont.push(FontClassObj);
+                    }
+                    RD_ENTRY.m_arrFont = g_ReportObject.arrFont;
+                    RD_ENTRY.m_arrFormat = g_ReportObject.arrFormat;
+                    if ($('#RDModalFont').hasClass('in')) {
+                        $('#RDModalFont').modal('hide');
+                    }
+                }
+                else {//For ReportCustomize screen
+                    FontClassObj = FONTDIALOG.getFontData("id_rc_rowformatting_fontcontrol7");
+                    $('#RC_RF_ModalFont').modal('hide');
+                    var tabEle = document.getElementById("id_rc_columnheadertable");
+                    if (tabEle.children.length > 0) {
+                        var cell_Tab = tabEle.children[0].children[0].cells;
+                    }
+                    //save in in g_objcusmodel.arrFont
+                    for (var i = 0; i < cell_Tab.length; i++) {
+                        if (cell_Tab[i].children[0].getAttribute("data-selected") === "true") {
+                            REPORTCUSTOMIZE.g_objcusmodel.lstCustomizeColumns[i].ColumnFont = FontClassObj;
+                            break;
+                        }
+                    }
+                    if (REPORTCUSTOMIZE.g_objcusmodel.arrFont != undefined) {
+                        REPORTCUSTOMIZE.g_objcusmodel.arrFont.splice(indexToInsert, 1, FontClassObj);
+                    }
+                    else {
+                        REPORTCUSTOMIZE.g_objcusmodel.arrFont = [];
+                        REPORTCUSTOMIZE.g_objcusmodel.arrFont.push(FontClassObj);
+                    }
+                }
+                return (FontClassObj);
+            }
+        }
+        catch (err) {
+            COMMON.prototype.showMessage("ROWFORMATTING.saveFontData" + err.message, "Exception");
+        }
+    },
+    getCustomizeColumns: function () {
+        var arrCols = [];
+        var reportcustomizecolumnsheader = null, rctabletbody = null, arrRDCols = null;
+        var tdTarget = document.getElementById("tdTarget");
+        var tdTarget2 = document.getElementById("tdTarget2");
+        var childcounter = 0; var innercounter = 0; var groupchildlength = 0;
+
+        if (ROWFORMATTING.isCalledFromReportDesigner() == true) { // From report designer
+            arrRDCols = RD_ENTRY.getCustomizeColumns();
+            for (var iCounter = 0; iCounter < arrRDCols.length; iCounter++) {
+                arrCols.push({
+                    iDataTypeId: arrRDCols[iCounter].iDataTypeId,
+                    iFieldId: arrRDCols[iCounter].iFieldId,
+                    iParentId: arrRDCols[iCounter].iParentId,
+                    iSubParentId: arrRDCols[iCounter].iSubParentId,
+                    sName: arrRDCols[iCounter].Column.AliasName.split(".").join(" ")
+                });
+            }
+        }
+        else { // From customization
+            reportcustomizecolumnsheader = document.getElementById('dv_ColumnHeader');
+            rctabletbody = reportcustomizecolumnsheader.children[0].children[0];
+            for (childcounter; childcounter < tdTarget.children.length; childcounter++) {
+                if (tdTarget.children[childcounter].getAttribute("data-bgroup") == "true") {//groups
+                    //add tdTarget2 child elements
+                    groupchildlength = parseInt(tdTarget.children[childcounter].getAttribute("colspan")) + groupchildlength;
+                    for (innercounter; innercounter < groupchildlength ; innercounter++) {
+                        arrCols.push(ROWFORMATTING.getTreeElementData(tdTarget2.children[innercounter].children[0]));
+                    }
+                }
+                else {//non-groups-add tdTarget child elements
+                    //arrCols.push(ROWFORMATTING.getTreeElementData(tdTarget.children[childcounter].children[0]));
+                    arrCols.push(ROWFORMATTING.getTreeElementData($($(tdTarget).children()[childcounter]).children('.dv_Column')[0]));
+                }
+            }
+        }
+        return (arrCols);
+    },
+
+    isCalledFromReportDesigner: function () {
+        var bValue = false;
+        if (document.getElementById("FormattingbyRow") == null) { // From report designer
+            bValue = true;
+        }
+        return (bValue);
+    },
+
+    isCalledFromReportCustomization: function () {
+        var bValue = false;
+        if (document.getElementById("id_ReportCustomModalFont_fontcontrol7") != null) { // From report designer
+            bValue = true;
+        }
+        return (bValue);
+    },
+
+    getFilterTextContainerElement: function () {
+        var ele = null;
+        ele = document.getElementById("id_filter_text");
+        return (ele);
+    },
+
+    getLabelForConditionElement: function () {
+        var ele = null;
+        ele = document.getElementById("id_label_for_condition");
+        return (ele);
+    },
+
+    getImageControlElement: function () {
+        var ele = null;
+        ele = document.getElementById("id_rowformatting_browsefile_ctrl");
+        return (ele);
+    },
+
+    getDontUseAbsoluteValueElement: function () {
+        var ele = null;
+        ele = document.getElementById("id_DontUseAbsoluteValue");
+        return (ele);
+    },
+
+    getApplyOnColumnElement: function () {
+        var ele = null;
+        ele = document.getElementById("id_ApplyOnColumn");
+        return (ele);
+    },
+
+    getFilterId: function () {
+        var iFilterId = 0;
+        if (ROWFORMATTING.isCalledFromReportDesigner() == false) {  // From report customization
+            iFilterId = parseInt(document.getElementById("MenuId").value);
+        }
+        else { // From report designer
+            iFilterId = RD_ENTRY.DEFINITION.getSelectedMenuId();
+            if (iFilterId == 0) {
+                iFilterId = document.getElementById("id_rd_definition_menuid").value;
+            }
+        }
+        if (iFilterId == -1) { //From Transaction Home -Customize screen
+            iFilterId = document.getElementById("id_hidden_iMenuId").value;
+        }
+        return (parseInt(iFilterId));
+    },
+
+    getSubFilterId: function () {
+        return (10);
+    },
+
+    getRowFormattingModalElement: function () {
+        var ele = null;
+        ele = document.getElementById("id_report_customize_rowformatting_popup");
+        return (ele);
+    }
+};

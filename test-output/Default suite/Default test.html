@@ -1,0 +1,1748 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/96</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Mar 30 12:08:54 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (844 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest<br>Parameters: [TestResult name=checkLoginTOAutomationCompany status=FAILURE method=Focus10InventoryReportsTest.checkLoginTOAutomationCompany()[pri:501, instance:com.focus.testcases.Focus10InventoryReportsTest@1f28c152] output={null}]</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=99.0.4844.84)
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;FOCUS-QA-10&apos;, ip: &apos;192.168.5.49&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_111&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.84, chrome: {chromedriverVersion: 98.0.4758.48 (d869ab3eda606..., userDataDir: C:\Users\Rakesh\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52956}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f32394da022cddfb1434f76af78518e7
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:289)
+	at com.focus.utilities.ScreenshotUtility.screenshot(ScreenshotUtility.java:19)
+	at com.focus.base.BaseEngine.afterMethodExecution(BaseEngine.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1544078442", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1544078442'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=99.0.4844.84)
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;FOCUS-QA-10&apos;, ip: &apos;192.168.5.49&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_111&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.84, chrome: {chromedriverVersion: 98.0.4758.48 (d869ab3eda606..., userDataDir: C:\Users\Rakesh\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52956}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f32394da022cddfb1434f76af78518e7
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver.getScreenshotAs(RemoteWebDriver.java:289)
+	at com.focus.utilities.ScreenshotUtility.screenshot(ScreenshotUtility.java:19)
+	at com.focus.base.BaseEngine.afterMethodExecution(BaseEngine.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:707)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.beforeMethodExecution()'><b>beforeMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.afterMethodExecution()'><b>afterMethodExecution</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.generateReports()'><b>generateReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>null</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkLoginTOAutomationCompany()'><b>checkLoginTOAutomationCompany</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=99.0.4844.84)
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;FOCUS-QA-10&apos;, ip: &apos;192.168.5.49&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_111&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.84, chrome: {chromedriverVersion: 98.0.4758.48 (d869ab3eda606..., userDataDir: C:\Users\Rakesh\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52956}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f32394da022cddfb1434f76af78518e7
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:856)
+	at com.focus.Pages.Focus10InventoryReportsPage.checkLoginTOAutomationCompany(Focus10InventoryReportsPage.java:67)
+	at com.focus.testcases.Focus10InventoryReportsTest.checkLoginTOAutomationCompany(Focus10InventoryReportsTest.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace487792155", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace487792155'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=99.0.4844.84)
+Build info: version: &apos;3.12.0&apos;, revision: &apos;7c6e0b3&apos;, time: &apos;2018-05-08T14:04:26.12Z&apos;
+System info: host: &apos;FOCUS-QA-10&apos;, ip: &apos;192.168.5.49&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_111&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 99.0.4844.84, chrome: {chromedriverVersion: 98.0.4758.48 (d869ab3eda606..., userDataDir: C:\Users\Rakesh\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52956}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f32394da022cddfb1434f76af78518e7
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:856)
+	at com.focus.Pages.Focus10InventoryReportsPage.checkLoginTOAutomationCompany(Focus10InventoryReportsPage.java:67)
+	at com.focus.testcases.Focus10InventoryReportsTest.checkLoginTOAutomationCompany(Focus10InventoryReportsTest.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkABCAnalysisReportWithClassificationAndCriteriaOptions()'><b>checkABCAnalysisReportWithClassificationAndCriteriaOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkABCAnalysisReports()'><b>checkABCAnalysisReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkActualConsumptionReport()'><b>checkActualConsumptionReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkActualConsumptionReportBackTrackOption()'><b>checkActualConsumptionReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkActualConsumptionReportWithFilterOption()'><b>checkActualConsumptionReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByBatchReportBackTrackOption()'><b>checkAgeingAnalysisByBatchReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByBatchReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions()'><b>checkAgeingAnalysisByBatchReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByBatchReports()'><b>checkAgeingAnalysisByBatchReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByBinReportBackTrackOption()'><b>checkAgeingAnalysisByBinReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByBinReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions()'><b>checkAgeingAnalysisByBinReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByRMAReport()'><b>checkAgeingAnalysisByRMAReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByRMAReportBackTrackOption()'><b>checkAgeingAnalysisByRMAReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByRMAReportWithFilterOption()'><b>checkAgeingAnalysisByRMAReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingAnalysisByRMAReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions()'><b>checkAgeingAnalysisByRMAReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingByItemByBinReportBackTrackOption()'><b>checkAgeingByItemByBinReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingByItemByBinReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions()'><b>checkAgeingByItemByBinReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingByItemByBinsReports()'><b>checkAgeingByItemByBinsReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkAgeingStockByBinsReports()'><b>checkAgeingStockByBinsReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkBestSellingItemReport()'><b>checkBestSellingItemReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkBestSellingItemReportBackTrackOption()'><b>checkBestSellingItemReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkBestSellingItemReportWithSortingOnAndIncludeAllVouchersChkBox()'><b>checkBestSellingItemReportWithSortingOnAndIncludeAllVouchersChkBox</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkExpiredStockByBinsReports()'><b>checkExpiredStockByBinsReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkFastMovingItemsReport()'><b>checkFastMovingItemsReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkFastMovingItemsReportBackTrackOption()'><b>checkFastMovingItemsReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkFastMovingItemsReportWithFilterOption()'><b>checkFastMovingItemsReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkItemQueryReport()'><b>checkItemQueryReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkLoginWithSU()'><b>checkLoginWithSU</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkLoginWithUserForItemRestriction()'><b>checkLoginWithUserForItemRestriction</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkMultiLevelStockMovementReportBackTrackOption()'><b>checkMultiLevelStockMovementReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkMultiLevelStockMovementReportFilterOption()'><b>checkMultiLevelStockMovementReportFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkMultiLevelStockMovementReportWithIncludeServiceTypeItemOption()'><b>checkMultiLevelStockMovementReportWithIncludeServiceTypeItemOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkMultiLevelStockMovementReports()'><b>checkMultiLevelStockMovementReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkOpeningStockRegisterReport()'><b>checkOpeningStockRegisterReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkOpeningStockRegisterReportBackTrackOption()'><b>checkOpeningStockRegisterReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkOpeningStockRegisterReportFilterOption()'><b>checkOpeningStockRegisterReportFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkPeakAndLowBalancesReport()'><b>checkPeakAndLowBalancesReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkPeakAndLowBalancesReportBackTrackOption()'><b>checkPeakAndLowBalancesReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkPeakAndLowBalancesReportWithFilterOption()'><b>checkPeakAndLowBalancesReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkReorderReportPrintOption()'><b>checkReorderReportPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkReorderReports()'><b>checkReorderReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkSlowMovingItemsReport()'><b>checkSlowMovingItemsReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkSlowMovingItemsReportBackTrackOption()'><b>checkSlowMovingItemsReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkSlowMovingItemsReportWithFilterOption()'><b>checkSlowMovingItemsReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAgeingAnalysisReportFilterOption()'><b>checkStockAgeingAnalysisReportFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAgeingAnalysisReportWithBackTrackOptions()'><b>checkStockAgeingAnalysisReportWithBackTrackOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAgeingAnalysisReportWithOptions()'><b>checkStockAgeingAnalysisReportWithOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAgeingAnalysisReports()'><b>checkStockAgeingAnalysisReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAnalysisByBatchReport()'><b>checkStockAnalysisByBatchReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAnalysisByBatchReportBackTrackOption()'><b>checkStockAnalysisByBatchReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAnalysisByBatchReportPrintOption()'><b>checkStockAnalysisByBatchReportPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAnalysisByBinReportWithFilterOption()'><b>checkStockAnalysisByBinReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAnalysisByRmaReports()'><b>checkStockAnalysisByRmaReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockAnalysisByRmaReportsPrintOption()'><b>checkStockAnalysisByRmaReportsPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalanaceByBinsReportBackTrackOption()'><b>checkStockBalanaceByBinsReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalanaceByBinsReportFilterOption()'><b>checkStockBalanaceByBinsReportFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalanaceByBinsReports()'><b>checkStockBalanaceByBinsReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalanceByWarehouseReportBackTrackOption()'><b>checkStockBalanceByWarehouseReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalanceByWarehouseReportIncludeServiceTypeItemOption()'><b>checkStockBalanceByWarehouseReportIncludeServiceTypeItemOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalanceByWarehouseReports()'><b>checkStockBalanceByWarehouseReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalancesByItemByBinsReportPrintOption()'><b>checkStockBalancesByItemByBinsReportPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockBalancesByItemByBinsReports()'><b>checkStockBalancesByItemByBinsReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockByItemByBinReportWithFilterOption()'><b>checkStockByItemByBinReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockDetailsByBinsReportBackTrackOption()'><b>checkStockDetailsByBinsReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockDetailsByBinsReportFilterOption()'><b>checkStockDetailsByBinsReportFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockDetailsByBinsReports()'><b>checkStockDetailsByBinsReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockLedgerCustomizationReport()'><b>checkStockLedgerCustomizationReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockLedgerReport()'><b>checkStockLedgerReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockLedgerReportBackTrackOption()'><b>checkStockLedgerReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockLedgerReportWithMovedItemsOnlyAndIncludeServiceTypeItemsCheckBoxs()'><b>checkStockLedgerReportWithMovedItemsOnlyAndIncludeServiceTypeItemsCheckBoxs</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockMovementReportBackTrackOption()'><b>checkStockMovementReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockMovementReportWithFilterOption()'><b>checkStockMovementReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockMovementReports()'><b>checkStockMovementReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockMovementReportsWithStockMovementByWarehouseAndIncludeServiceTypeItemOptions()'><b>checkStockMovementReportsWithStockMovementByWarehouseAndIncludeServiceTypeItemOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReportbyTagReportBackTrackOption()'><b>checkStockReportbyTagReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReportbyTagReportPrintOption()'><b>checkStockReportbyTagReportPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReportbyTagReports()'><b>checkStockReportbyTagReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReportbyTagReportsWithUserForItemRestriction()'><b>checkStockReportbyTagReportsWithUserForItemRestriction</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReservationRegisterReport()'><b>checkStockReservationRegisterReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReservationRegisterReportBackTrackOption()'><b>checkStockReservationRegisterReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockReservationRegisterReportWithFilterOption()'><b>checkStockReservationRegisterReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockStatementReport()'><b>checkStockStatementReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockStatementReportPrintOption()'><b>checkStockStatementReportPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockStatementReportWithIncludeServiceTypeItem()'><b>checkStockStatementReportWithIncludeServiceTypeItem</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockTransferRegisterReport()'><b>checkStockTransferRegisterReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockTransferRegisterReportBackTrackOption()'><b>checkStockTransferRegisterReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockTransferRegisterReportPrintOption()'><b>checkStockTransferRegisterReportPrintOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockTransferRegisterReportWithFromAndToWarehouseAndDetailsOptions()'><b>checkStockTransferRegisterReportWithFromAndToWarehouseAndDetailsOptions</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockValuationReportBackTrackOption()'><b>checkStockValuationReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockValuationReportWithStockValuationDisplayLinearReportIncludeServiceTypeItemOption()'><b>checkStockValuationReportWithStockValuationDisplayLinearReportIncludeServiceTypeItemOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkStockValuationReports()'><b>checkStockValuationReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkTransactionTypeWiseStockReport()'><b>checkTransactionTypeWiseStockReport</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkTransactionTypeWiseStockReportBackTrackOption()'><b>checkTransactionTypeWiseStockReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkTransactionTypeWiseStockReportWithFilterOption()'><b>checkTransactionTypeWiseStockReportWithFilterOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkVirtualStockAnalysisReportBackTrackOption()'><b>checkVirtualStockAnalysisReportBackTrackOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkVirtualStockAnalysisReportWithIncludeServiceTypeItemOption()'><b>checkVirtualStockAnalysisReportWithIncludeServiceTypeItemOption</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+<tr>
+<td title='com.focus.testcases.Focus10InventoryReportsTest.checkVirtualStockAnalysisReports()'><b>checkVirtualStockAnalysisReports</b><br>Test class: com.focus.testcases.Focus10InventoryReportsTest</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.Focus10InventoryReportsTest@1f28c152</td></tr>
+</table><p>
+</body>
+</html>

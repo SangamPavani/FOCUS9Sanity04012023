@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.focus.listeners.Listener"/>
+  </listeners>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.focus.testcases.URLBrowserTest"/>
+      <class name="com.focus.testcases.LoginPageTest"/>
+      <class name="com.focus.testcases.MasterPreloadTest"/>
+      <class name="com.focus.testcases.RulesTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.focus.testcases.URLBrowserTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="beforeMethodExecution"/>
+          <include name="generateReports"/>
+          <include name="intialiseReports"/>
+          <include name="openBrowser"/>
+          <include name="afterMethodExecution"/>
+        </methods>
+      </class> <!-- com.focus.testcases.URLBrowserTest -->
+      <class name="com.focus.testcases.LoginPageTest">
+        <methods>
+          <include name="beforeMethodExecution"/>
+          <include name="afterMethodExecution"/>
+        </methods>
+      </class> <!-- com.focus.testcases.LoginPageTest -->
+      <class name="com.focus.testcases.RulesTest">
+        <methods>
+          <include name="beforeMethodExecution"/>
+          <include name="checkPrintPDFFileAfterImportingHeaderAndFooterLayoutInStockLedgerReport"/>
+          <include name="checkSavingPurchaseVoucherVATWithRateEqualToAverageRateWithWarnAndAllow"/>
+          <include name="checkF5KeyWithRMAPopUpInOpeningStocks"/>
+          <include name="checkPrintPDFFileAfterCreatingHeadeAndFooterLayoutInLedgerReport"/>
+          <include name="checkSavingPurchaseVoucherVATWithRateBelowAverageRateForWarnAndAllow"/>
+          <include name="afterMethodExecution"/>
+          <include name="checkLOADRuleOptionAtVoucherLevel"/>
+          <include name="checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRateWithWarnAndAllow"/>
+        </methods>
+      </class> <!-- com.focus.testcases.RulesTest -->
+      <class name="com.focus.testcases.MasterPreloadTest">
+        <methods>
+          <include name="beforeMethodExecution"/>
+          <include name="CheckEditingPurchaseVoucherVAT1WithStockItemAndSTDRateItem"/>
+          <include name="CheckSavingPurchaseVoucherVATWithStockItemAndSTDRateItem"/>
+          <include name="afterMethodExecution"/>
+        </methods>
+      </class> <!-- com.focus.testcases.MasterPreloadTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test verbose="2" name="Default test">
+    <classes>
+      <class name="com.focus.testcases.Focus10InventoryReportsTest"/>
+    </classes>
+  </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.focus.testcases.Focus10InventoryReportsTest">
+        <methods>
+          <include name="checkFastMovingItemsReportBackTrackOption"/>
+          <include name="checkAgeingAnalysisByBinReportBackTrackOption"/>
+          <include name="checkAgeingByItemByBinReportBackTrackOption"/>
+          <include name="checkStockBalanceByWarehouseReportIncludeServiceTypeItemOption"/>
+          <include name="checkStockLedgerReportBackTrackOption"/>
+          <include name="checkTransactionTypeWiseStockReport"/>
+          <include name="checkStockAgeingAnalysisReports"/>
+          <include name="checkStockMovementReportBackTrackOption"/>
+          <include name="checkActualConsumptionReportWithFilterOption"/>
+          <include name="checkAgeingAnalysisByBinReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions"/>
+          <include name="checkSlowMovingItemsReportWithFilterOption"/>
+          <include name="checkBestSellingItemReportWithSortingOnAndIncludeAllVouchersChkBox"/>
+          <include name="checkStockReservationRegisterReportBackTrackOption"/>
+          <include name="checkStockBalancesByItemByBinsReports"/>
+          <include name="checkStockTransferRegisterReportPrintOption"/>
+          <include name="checkActualConsumptionReport"/>
+          <include name="checkBestSellingItemReportBackTrackOption"/>
+          <include name="checkStockAgeingAnalysisReportWithOptions"/>
+          <include name="checkStockLedgerCustomizationReport"/>
+          <include name="checkStockMovementReports"/>
+          <include name="checkBestSellingItemReport"/>
+          <include name="checkMultiLevelStockMovementReportBackTrackOption"/>
+          <include name="checkStockByItemByBinReportWithFilterOption"/>
+          <include name="checkAgeingAnalysisByBatchReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions"/>
+          <include name="checkStockMovementReportsWithStockMovementByWarehouseAndIncludeServiceTypeItemOptions"/>
+          <include name="checkStockAgeingAnalysisReportWithBackTrackOptions"/>
+          <include name="checkAgeingByItemByBinsReports"/>
+          <include name="checkStockAnalysisByBatchReport"/>
+          <include name="checkVirtualStockAnalysisReportWithIncludeServiceTypeItemOption"/>
+          <include name="checkABCAnalysisReports"/>
+          <include name="checkStockLedgerReport"/>
+          <include name="checkAgeingAnalysisByRMAReport"/>
+          <include name="checkStockTransferRegisterReport"/>
+          <include name="checkReorderReports"/>
+          <include name="checkABCAnalysisReportWithClassificationAndCriteriaOptions"/>
+          <include name="checkStockValuationReportWithStockValuationDisplayLinearReportIncludeServiceTypeItemOption"/>
+          <include name="checkStockAnalysisByBinReportWithFilterOption"/>
+          <include name="checkStockValuationReportBackTrackOption"/>
+          <include name="checkAgeingAnalysisByRMAReportWithFilterOption"/>
+          <include name="checkStockTransferRegisterReportBackTrackOption"/>
+          <include name="checkStockBalanaceByBinsReports"/>
+          <include name="checkFastMovingItemsReport"/>
+          <include name="checkStockBalanaceByBinsReportBackTrackOption"/>
+          <include name="checkStockDetailsByBinsReports"/>
+          <include name="checkStockAnalysisByBatchReportBackTrackOption"/>
+          <include name="checkStockStatementReport"/>
+          <include name="checkVirtualStockAnalysisReportBackTrackOption"/>
+          <include name="checkStockValuationReports"/>
+          <include name="checkStockTransferRegisterReportWithFromAndToWarehouseAndDetailsOptions"/>
+          <include name="afterMethodExecution"/>
+          <include name="checkStockReportbyTagReports"/>
+          <include name="checkStockReportbyTagReportPrintOption"/>
+          <include name="checkStockReservationRegisterReportWithFilterOption"/>
+          <include name="checkStockBalanceByWarehouseReportBackTrackOption"/>
+          <include name="checkAgeingAnalysisByRMAReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions"/>
+          <include name="checkAgeingAnalysisByRMAReportBackTrackOption"/>
+          <include name="checkExpiredStockByBinsReports"/>
+          <include name="checkStockBalancesByItemByBinsReportPrintOption"/>
+          <include name="checkStockDetailsByBinsReportBackTrackOption"/>
+          <include name="checkOpeningStockRegisterReport"/>
+          <include name="checkStockAgeingAnalysisReportFilterOption"/>
+          <include name="checkStockAnalysisByRmaReportsPrintOption"/>
+          <include name="intialiseReports"/>
+          <include name="checkActualConsumptionReportBackTrackOption"/>
+          <include name="checkAgeingStockByBinsReports"/>
+          <include name="checkPeakAndLowBalancesReportWithFilterOption"/>
+          <include name="checkStockAnalysisByRmaReports"/>
+          <include name="checkStockReportbyTagReportBackTrackOption"/>
+          <include name="checkAgeingAnalysisByBatchReportBackTrackOption"/>
+          <include name="checkMultiLevelStockMovementReports"/>
+          <include name="checkStockAnalysisByBatchReportPrintOption"/>
+          <include name="checkLoginTOAutomationCompany"/>
+          <include name="checkItemQueryReport"/>
+          <include name="checkMultiLevelStockMovementReportFilterOption"/>
+          <include name="checkTransactionTypeWiseStockReportWithFilterOption"/>
+          <include name="checkOpeningStockRegisterReportBackTrackOption"/>
+          <include name="checkStockReservationRegisterReport"/>
+          <include name="checkStockBalanaceByBinsReportFilterOption"/>
+          <include name="checkStockBalanceByWarehouseReports"/>
+          <include name="checkStockReportbyTagReportsWithUserForItemRestriction"/>
+          <include name="checkStockMovementReportWithFilterOption"/>
+          <include name="checkVirtualStockAnalysisReports"/>
+          <include name="checkStockLedgerReportWithMovedItemsOnlyAndIncludeServiceTypeItemsCheckBoxs"/>
+          <include name="checkFastMovingItemsReportWithFilterOption"/>
+          <include name="checkStockStatementReportPrintOption"/>
+          <include name="checkSlowMovingItemsReport"/>
+          <include name="checkPeakAndLowBalancesReport"/>
+          <include name="checkPeakAndLowBalancesReportBackTrackOption"/>
+          <include name="checkStockStatementReportWithIncludeServiceTypeItem"/>
+          <include name="checkLoginWithSU"/>
+          <include name="checkSlowMovingItemsReportBackTrackOption"/>
+          <include name="checkTransactionTypeWiseStockReportBackTrackOption"/>
+          <include name="beforeMethodExecution"/>
+          <include name="checkAgeingAnalysisByBatchReports"/>
+          <include name="openBrowser"/>
+          <include name="checkAgeingByItemByBinReportWithWarehouseAndIgnoreInternalTransferForAgeingOptions"/>
+          <include name="checkReorderReportPrintOption"/>
+          <include name="checkOpeningStockRegisterReportFilterOption"/>
+          <include name="checkMultiLevelStockMovementReportWithIncludeServiceTypeItemOption"/>
+          <include name="checkLoginWithUserForItemRestriction"/>
+          <include name="checkStockDetailsByBinsReportFilterOption"/>
+        </methods>
+      </class> <!-- com.focus.testcases.Focus10InventoryReportsTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

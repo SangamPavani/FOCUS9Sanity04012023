@@ -1,0 +1,1452 @@
+<html>
+<head>
+<title>TestNG:  Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>61/9/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jan 04 13:05:07 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1754 seconds (1754285 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.CheckEditingPurchaseVoucherVAT1WithStockItemAndSTDRateItem()'><b>CheckEditingPurchaseVoucherVAT1WithStockItemAndSTDRateItem</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1316615146" onClick='toggleBox("Output-1316615146", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1316615146" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1316615146">
+Completed executing following method : MasterPreloadTest.CheckEditingPurchaseVoucherVAT1WithStockItemAndSTDRateItem<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.MasterPreloadTest.CheckEditingPurchaseVoucherVAT1WithStockItemAndSTDRateItem(MasterPreloadTest.java:80)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1316615146", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1316615146'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.MasterPreloadTest.CheckEditingPurchaseVoucherVAT1WithStockItemAndSTDRateItem(MasterPreloadTest.java:80)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>26</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.CheckSavingPurchaseVoucherVATWithStockItemAndSTDRateItem()'><b>CheckSavingPurchaseVoucherVATWithStockItemAndSTDRateItem</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-705554830" onClick='toggleBox("Output-705554830", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-705554830" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-705554830">
+Completed executing following method : MasterPreloadTest.CheckSavingPurchaseVoucherVATWithStockItemAndSTDRateItem<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.MasterPreloadTest.CheckSavingPurchaseVoucherVATWithStockItemAndSTDRateItem(MasterPreloadTest.java:66)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace705554830", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace705554830'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.MasterPreloadTest.CheckSavingPurchaseVoucherVATWithStockItemAndSTDRateItem(MasterPreloadTest.java:66)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>44</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkF5KeyWithRMAPopUpInOpeningStocks()'><b>checkF5KeyWithRMAPopUpInOpeningStocks</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-507049740" onClick='toggleBox("Output-507049740", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-507049740" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-507049740">
+Completed executing following method : RulesTest.checkF5KeyWithRMAPopUpInOpeningStocks<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkF5KeyWithRMAPopUpInOpeningStocks(RulesTest.java:268)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace507049740", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace507049740'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkF5KeyWithRMAPopUpInOpeningStocks(RulesTest.java:268)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>29</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkLOADRuleOptionAtVoucherLevel()'><b>checkLOADRuleOptionAtVoucherLevel</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1088719265" onClick='toggleBox("Output-1088719265", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1088719265" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1088719265">
+Completed executing following method : RulesTest.checkLOADRuleOptionAtVoucherLevel<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkLOADRuleOptionAtVoucherLevel(RulesTest.java:52)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1088719265", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1088719265'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkLOADRuleOptionAtVoucherLevel(RulesTest.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>28</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkPrintPDFFileAfterCreatingHeadeAndFooterLayoutInLedgerReport()'><b>checkPrintPDFFileAfterCreatingHeadeAndFooterLayoutInLedgerReport</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-21050304" onClick='toggleBox("Output-21050304", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-21050304" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-21050304">
+Completed executing following method : RulesTest.checkPrintPDFFileAfterCreatingHeadeAndFooterLayoutInLedgerReport<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkPrintPDFFileAfterCreatingHeadeAndFooterLayoutInLedgerReport(RulesTest.java:369)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace21050304", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace21050304'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkPrintPDFFileAfterCreatingHeadeAndFooterLayoutInLedgerReport(RulesTest.java:369)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>15</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkPrintPDFFileAfterImportingHeaderAndFooterLayoutInStockLedgerReport()'><b>checkPrintPDFFileAfterImportingHeaderAndFooterLayoutInStockLedgerReport</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-367717698" onClick='toggleBox("Output-367717698", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-367717698" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-367717698">
+Completed executing following method : RulesTest.checkPrintPDFFileAfterImportingHeaderAndFooterLayoutInStockLedgerReport<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkPrintPDFFileAfterImportingHeaderAndFooterLayoutInStockLedgerReport(RulesTest.java:383)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace367717698", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace367717698'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkPrintPDFFileAfterImportingHeaderAndFooterLayoutInStockLedgerReport(RulesTest.java:383)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>15</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateBelowAverageRateForWarnAndAllow()'><b>checkSavingPurchaseVoucherVATWithRateBelowAverageRateForWarnAndAllow</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-166424409" onClick='toggleBox("Output-166424409", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-166424409" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-166424409">
+Completed executing following method : RulesTest.checkSavingPurchaseVoucherVATWithRateBelowAverageRateForWarnAndAllow<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateBelowAverageRateForWarnAndAllow(RulesTest.java:337)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace166424409", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace166424409'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateBelowAverageRateForWarnAndAllow(RulesTest.java:337)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>22</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateEqualToAverageRateWithWarnAndAllow()'><b>checkSavingPurchaseVoucherVATWithRateEqualToAverageRateWithWarnAndAllow</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-277023601" onClick='toggleBox("Output-277023601", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-277023601" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-277023601">
+Completed executing following method : RulesTest.checkSavingPurchaseVoucherVATWithRateEqualToAverageRateWithWarnAndAllow<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateEqualToAverageRateWithWarnAndAllow(RulesTest.java:344)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace277023601", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace277023601'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateEqualToAverageRateWithWarnAndAllow(RulesTest.java:344)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>21</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRateWithWarnAndAllow()'><b>checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRateWithWarnAndAllow</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1160654355" onClick='toggleBox("Output-1160654355", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1160654355" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1160654355">
+Completed executing following method : RulesTest.checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRateWithWarnAndAllow<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Failed<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRateWithWarnAndAllow(RulesTest.java:351)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1160654355", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1160654355'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at org.testng.Assert.assertEquals(Assert.java:315)
+	at com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRateWithWarnAndAllow(RulesTest.java:351)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>21</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.CheckCostCenterInSavedVoucherWithStockItemAndSTDRateItem()'><b>CheckCostCenterInSavedVoucherWithStockItemAndSTDRateItem</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1812101815" onClick='toggleBox("Output-1812101815", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1812101815" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1812101815">
+Completed executing following method : MasterPreloadTest.CheckCostCenterInSavedVoucherWithStockItemAndSTDRateItem<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.CheckNavigateToRulesTAB()'><b>CheckNavigateToRulesTAB</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1882823613" onClick='toggleBox("Output-1882823613", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1882823613" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1882823613">
+Completed executing following method : RulesTest.CheckNavigateToRulesTAB<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.chckRestoreBackUpForSQLFunction()'><b>chckRestoreBackUpForSQLFunction</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1343408046" onClick='toggleBox("Output-1343408046", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1343408046" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1343408046">
+Completed executing following method : RulesTest.chckRestoreBackUpForSQLFunction<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>111</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkAccountTxtWithClickOnF5()'><b>checkAccountTxtWithClickOnF5</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1213848381" onClick='toggleBox("Output-1213848381", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1213848381" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1213848381">
+Completed executing following method : RulesTest.checkAccountTxtWithClickOnF5<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>28</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkAddingExtraFieldInGeneralTabAsCostCenter()'><b>checkAddingExtraFieldInGeneralTabAsCostCenter</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1348905109" onClick='toggleBox("Output-1348905109", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1348905109" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1348905109">
+Completed executing following method : MasterPreloadTest.checkAddingExtraFieldInGeneralTabAsCostCenter<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>45</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkAddingFieldsInEditLayoutBodyTabAsCostCenterBodyInPurchaseVoucher()'><b>checkAddingFieldsInEditLayoutBodyTabAsCostCenterBodyInPurchaseVoucher</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-877323851" onClick='toggleBox("Output-877323851", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-877323851" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-877323851">
+Completed executing following method : MasterPreloadTest.checkAddingFieldsInEditLayoutBodyTabAsCostCenterBodyInPurchaseVoucher<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>26</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkAddingHeadeAndFooterInLedgerReport()'><b>checkAddingHeadeAndFooterInLedgerReport</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-455076630" onClick='toggleBox("Output-455076630", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-455076630" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-455076630">
+Completed executing following method : RulesTest.checkAddingHeadeAndFooterInLedgerReport<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>47</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkAfterEnableHiddenOptionAtVoucherLevel()'><b>checkAfterEnableHiddenOptionAtVoucherLevel</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-583629190" onClick='toggleBox("Output-583629190", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-583629190" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-583629190">
+Completed executing following method : RulesTest.checkAfterEnableHiddenOptionAtVoucherLevel<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkAssigningCostCenterToSTDRateItem()'><b>checkAssigningCostCenterToSTDRateItem</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1289824554" onClick='toggleBox("Output-1289824554", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1289824554" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1289824554">
+Completed executing following method : MasterPreloadTest.checkAssigningCostCenterToSTDRateItem<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkAssigningCostCenterToStockItem()'><b>checkAssigningCostCenterToStockItem</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-632234813" onClick='toggleBox("Output-632234813", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-632234813" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-632234813">
+Completed executing following method : MasterPreloadTest.checkAssigningCostCenterToStockItem<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkBodyHeadingColumnWithCustomerAccount()'><b>checkBodyHeadingColumnWithCustomerAccount</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-2086648453" onClick='toggleBox("Output-2086648453", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2086648453" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2086648453">
+Completed executing following method : RulesTest.checkBodyHeadingColumnWithCustomerAccount<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkChangingDepartmentAsAMERICAAndValidateColounmHeadingName()'><b>checkChangingDepartmentAsAMERICAAndValidateColounmHeadingName</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-322121816" onClick='toggleBox("Output-322121816", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-322121816" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-322121816">
+Completed executing following method : RulesTest.checkChangingDepartmentAsAMERICAAndValidateColounmHeadingName<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkClickOnHiddingOptionInRulesAndClickOnSave()'><b>checkClickOnHiddingOptionInRulesAndClickOnSave</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1915291179" onClick='toggleBox("Output-1915291179", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1915291179" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1915291179">
+Completed executing following method : RulesTest.checkClickOnHiddingOptionInRulesAndClickOnSave<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>27</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.LoginPageTest.checkCompanyTextDisplayInCompanyListDropdown()'><b>checkCompanyTextDisplayInCompanyListDropdown</b><br>Test class: com.focus.testcases.LoginPageTest<br/>
+<a href="#Output-901852282" onClick='toggleBox("Output-901852282", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-901852282" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-901852282">
+Completed executing following method : LoginPageTest.checkCompanyTextDisplayInCompanyListDropdown<br/>
+Test Method resides in com.focus.testcases.LoginPageTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.LoginPageTest@6e0e048a</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkCopyAndPasteWithControlOptionInLedgerReport()'><b>checkCopyAndPasteWithControlOptionInLedgerReport</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1764868604" onClick='toggleBox("Output-1764868604", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1764868604" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1764868604">
+Completed executing following method : RulesTest.checkCopyAndPasteWithControlOptionInLedgerReport<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkCreatingConditionForRestrictionsWithStopOption()'><b>checkCreatingConditionForRestrictionsWithStopOption</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-101776195" onClick='toggleBox("Output-101776195", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-101776195" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-101776195">
+Completed executing following method : RulesTest.checkCreatingConditionForRestrictionsWithStopOption<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>28</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkCreatingConditionForRestrictionsWithWarnAndAllowOption()'><b>checkCreatingConditionForRestrictionsWithWarnAndAllowOption</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-37687219" onClick='toggleBox("Output-37687219", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-37687219" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-37687219">
+Completed executing following method : RulesTest.checkCreatingConditionForRestrictionsWithWarnAndAllowOption<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>25</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkCreatingCostCenterWithSTDRateCostCenter()'><b>checkCreatingCostCenterWithSTDRateCostCenter</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1805632967" onClick='toggleBox("Output-1805632967", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1805632967" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1805632967">
+Completed executing following method : MasterPreloadTest.checkCreatingCostCenterWithSTDRateCostCenter<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkCreatingCostCenterWithStockCostCenter()'><b>checkCreatingCostCenterWithStockCostCenter</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1909198389" onClick='toggleBox("Output-1909198389", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1909198389" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1909198389">
+Completed executing following method : MasterPreloadTest.checkCreatingCostCenterWithStockCostCenter<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkCreatingViewOptionInPurchaseVoucher()'><b>checkCreatingViewOptionInPurchaseVoucher</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-209351267" onClick='toggleBox("Output-209351267", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-209351267" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-209351267">
+Completed executing following method : RulesTest.checkCreatingViewOptionInPurchaseVoucher<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>37</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkEditingAndAddingSavedRuleUnderRecepitsVAT()'><b>checkEditingAndAddingSavedRuleUnderRecepitsVAT</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-736324732" onClick='toggleBox("Output-736324732", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-736324732" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-736324732">
+Completed executing following method : RulesTest.checkEditingAndAddingSavedRuleUnderRecepitsVAT<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>49</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkEnterF5keyInLedgerReport()'><b>checkEnterF5keyInLedgerReport</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-2028780362" onClick='toggleBox("Output-2028780362", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2028780362" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2028780362">
+Completed executing following method : RulesTest.checkEnterF5keyInLedgerReport<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>35</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkEraseAllTransactionsAfterCompletingAllValidations()'><b>checkEraseAllTransactionsAfterCompletingAllValidations</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1839206286" onClick='toggleBox("Output-1839206286", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1839206286" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1839206286">
+Completed executing following method : MasterPreloadTest.checkEraseAllTransactionsAfterCompletingAllValidations<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkF5KeyInFilterPopUpScreen()'><b>checkF5KeyInFilterPopUpScreen</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1030018641" onClick='toggleBox("Output-1030018641", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1030018641" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1030018641">
+Completed executing following method : RulesTest.checkF5KeyInFilterPopUpScreen<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>22</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkITEMWithF5Key()'><b>checkITEMWithF5Key</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1704204365" onClick='toggleBox("Output-1704204365", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1704204365" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1704204365">
+Completed executing following method : RulesTest.checkITEMWithF5Key<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>23</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkItemValuesintoVoucherLevelOnClickOnOkBtnInSearchPopUp()'><b>checkItemValuesintoVoucherLevelOnClickOnOkBtnInSearchPopUp</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-906055635" onClick='toggleBox("Output-906055635", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-906055635" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-906055635">
+Completed executing following method : RulesTest.checkItemValuesintoVoucherLevelOnClickOnOkBtnInSearchPopUp<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkLoadingAccountValuesFromSearchPopUp()'><b>checkLoadingAccountValuesFromSearchPopUp</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-2093187051" onClick='toggleBox("Output-2093187051", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2093187051" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2093187051">
+Completed executing following method : RulesTest.checkLoadingAccountValuesFromSearchPopUp<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkLoadingFieldsIntoPopOnClickOnRefreshBtn()'><b>checkLoadingFieldsIntoPopOnClickOnRefreshBtn</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-40748123" onClick='toggleBox("Output-40748123", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-40748123" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-40748123">
+Completed executing following method : RulesTest.checkLoadingFieldsIntoPopOnClickOnRefreshBtn<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkLogin()'><b>checkLogin</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1512819271" onClick='toggleBox("Output-1512819271", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1512819271" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1512819271">
+Completed executing following method : RulesTest.checkLogin<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.LoginPageTest.checkLoginPageAvailablityOfFields()'><b>checkLoginPageAvailablityOfFields</b><br>Test class: com.focus.testcases.LoginPageTest<br/>
+<a href="#Output-1967667267" onClick='toggleBox("Output-1967667267", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1967667267" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1967667267">
+Completed executing following method : LoginPageTest.checkLoginPageAvailablityOfFields<br/>
+Test Method resides in com.focus.testcases.LoginPageTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.LoginPageTest@6e0e048a</td></tr>
+<tr>
+<td title='com.focus.testcases.URLBrowserTest.checkLoginPageTitleByURLInputInBrowser()'><b>checkLoginPageTitleByURLInputInBrowser</b><br>Test class: com.focus.testcases.URLBrowserTest<br/>
+<a href="#Output-238431319" onClick='toggleBox("Output-238431319", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-238431319" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-238431319">
+Completed executing following method : URLBrowserTest.checkLoginPageTitleByURLInputInBrowser<br/>
+Test Method resides in com.focus.testcases.URLBrowserTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>com.focus.testcases.URLBrowserTest@5b87ed94</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkOnLeaveValiationATVoucherLevelWithDepartmentWales()'><b>checkOnLeaveValiationATVoucherLevelWithDepartmentWales</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-998730353" onClick='toggleBox("Output-998730353", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-998730353" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-998730353">
+Completed executing following method : RulesTest.checkOnLeaveValiationATVoucherLevelWithDepartmentWales<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkRuleConditionAfterEditingINEnterRule()'><b>checkRuleConditionAfterEditingINEnterRule</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1048802648" onClick='toggleBox("Output-1048802648", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1048802648" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1048802648">
+Completed executing following method : RulesTest.checkRuleConditionAfterEditingINEnterRule<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSQLFuntionATExcessStockVoucherLevel()'><b>checkSQLFuntionATExcessStockVoucherLevel</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1062592281" onClick='toggleBox("Output-1062592281", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1062592281" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1062592281">
+Completed executing following method : RulesTest.checkSQLFuntionATExcessStockVoucherLevel<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>24</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkSavedPVVATAfterEditingVoucher()'><b>checkSavedPVVATAfterEditingVoucher</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-246251411" onClick='toggleBox("Output-246251411", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-246251411" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-246251411">
+Completed executing following method : MasterPreloadTest.checkSavedPVVATAfterEditingVoucher<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavedRuleWithLoadOptionEnable()'><b>checkSavedRuleWithLoadOptionEnable</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-533480686" onClick='toggleBox("Output-533480686", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-533480686" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-533480686">
+Completed executing following method : RulesTest.checkSavedRuleWithLoadOptionEnable<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>22</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingExtraFiledInSalesINvoiceVAT()'><b>checkSavingExtraFiledInSalesINvoiceVAT</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-580997621" onClick='toggleBox("Output-580997621", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-580997621" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-580997621">
+Completed executing following method : RulesTest.checkSavingExtraFiledInSalesINvoiceVAT<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>24</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingOpeningStockVoucher()'><b>checkSavingOpeningStockVoucher</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-198174359" onClick='toggleBox("Output-198174359", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-198174359" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-198174359">
+Completed executing following method : RulesTest.checkSavingOpeningStockVoucher<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateBelowAverageRate()'><b>checkSavingPurchaseVoucherVATWithRateBelowAverageRate</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-990693077" onClick='toggleBox("Output-990693077", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-990693077" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-990693077">
+Completed executing following method : RulesTest.checkSavingPurchaseVoucherVATWithRateBelowAverageRate<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>20</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateEqualToAverageRate()'><b>checkSavingPurchaseVoucherVATWithRateEqualToAverageRate</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1354108446" onClick='toggleBox("Output-1354108446", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1354108446" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1354108446">
+Completed executing following method : RulesTest.checkSavingPurchaseVoucherVATWithRateEqualToAverageRate<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRate()'><b>checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRate</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1081646915" onClick='toggleBox("Output-1081646915", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1081646915" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1081646915">
+Completed executing following method : RulesTest.checkSavingPurchaseVoucherVATWithRateGreaterThanAverageRate<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingRuleWithFormulaUnderSalesINvoiceVAT()'><b>checkSavingRuleWithFormulaUnderSalesINvoiceVAT</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1632410680" onClick='toggleBox("Output-1632410680", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1632410680" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1632410680">
+Completed executing following method : RulesTest.checkSavingRuleWithFormulaUnderSalesINvoiceVAT<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>45</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingRuleWithOutInput()'><b>checkSavingRuleWithOutInput</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-888148910" onClick='toggleBox("Output-888148910", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-888148910" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-888148910">
+Completed executing following method : RulesTest.checkSavingRuleWithOutInput<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingRulesWithOnLeave()'><b>checkSavingRulesWithOnLeave</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-2102200021" onClick='toggleBox("Output-2102200021", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2102200021" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2102200021">
+Completed executing following method : RulesTest.checkSavingRulesWithOnLeave<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>77</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkSavingRulesWithOnLoadOptionEnableInVoucherLevel()'><b>checkSavingRulesWithOnLoadOptionEnableInVoucherLevel</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-110128553" onClick='toggleBox("Output-110128553", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-110128553" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-110128553">
+Completed executing following method : RulesTest.checkSavingRulesWithOnLoadOptionEnableInVoucherLevel<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>30</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.LoginPageTest.checkSignInBtnWithValidUserNameAndValidPassword()'><b>checkSignInBtnWithValidUserNameAndValidPassword</b><br>Test class: com.focus.testcases.LoginPageTest<br/>
+<a href="#Output-488795943" onClick='toggleBox("Output-488795943", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-488795943" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-488795943">
+Completed executing following method : LoginPageTest.checkSignInBtnWithValidUserNameAndValidPassword<br/>
+Test Method resides in com.focus.testcases.LoginPageTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>com.focus.testcases.LoginPageTest@6e0e048a</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkStockLedgerReportImportingHeaderAndFooterLayout()'><b>checkStockLedgerReportImportingHeaderAndFooterLayout</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1364319165" onClick='toggleBox("Output-1364319165", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1364319165" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1364319165">
+Completed executing following method : RulesTest.checkStockLedgerReportImportingHeaderAndFooterLayout<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>40</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkUpdatingItemRateCannotBeBelowCostForSalesInvoiceVAT()'><b>checkUpdatingItemRateCannotBeBelowCostForSalesInvoiceVAT</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1894617440" onClick='toggleBox("Output-1894617440", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1894617440" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1894617440">
+Completed executing following method : MasterPreloadTest.checkUpdatingItemRateCannotBeBelowCostForSalesInvoiceVAT<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>24</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkUpdatingItemRateCannotBeChangedForSalesInvoiceVAT()'><b>checkUpdatingItemRateCannotBeChangedForSalesInvoiceVAT</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-493887609" onClick='toggleBox("Output-493887609", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-493887609" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-493887609">
+Completed executing following method : MasterPreloadTest.checkUpdatingItemRateCannotBeChangedForSalesInvoiceVAT<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkUpdatingItemRateEditableForSalesInvoiceVAT()'><b>checkUpdatingItemRateEditableForSalesInvoiceVAT</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1663165144" onClick='toggleBox("Output-1663165144", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1663165144" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1663165144">
+Completed executing following method : MasterPreloadTest.checkUpdatingItemRateEditableForSalesInvoiceVAT<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.LoginPageTest.checkUserNameInfoInHomePage()'><b>checkUserNameInfoInHomePage</b><br>Test class: com.focus.testcases.LoginPageTest<br/>
+<a href="#Output-1531514206" onClick='toggleBox("Output-1531514206", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1531514206" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1531514206">
+Completed executing following method : LoginPageTest.checkUserNameInfoInHomePage<br/>
+Test Method resides in com.focus.testcases.LoginPageTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>com.focus.testcases.LoginPageTest@6e0e048a</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkValidatingCannotBeBelowCostDropdownAndSavingVoucher()'><b>checkValidatingCannotBeBelowCostDropdownAndSavingVoucher</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-1317036847" onClick='toggleBox("Output-1317036847", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1317036847" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1317036847">
+Completed executing following method : MasterPreloadTest.checkValidatingCannotBeBelowCostDropdownAndSavingVoucher<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>28</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.MasterPreloadTest.checkValidatingCannotBeChangedInSavedVoucher()'><b>checkValidatingCannotBeChangedInSavedVoucher</b><br>Test class: com.focus.testcases.MasterPreloadTest<br/>
+<a href="#Output-155237847" onClick='toggleBox("Output-155237847", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-155237847" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-155237847">
+Completed executing following method : MasterPreloadTest.checkValidatingCannotBeChangedInSavedVoucher<br/>
+Test Method resides in com.focus.testcases.MasterPreloadTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.focus.testcases.MasterPreloadTest@5bc79255</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkValidationOFEditRuleWithWarnAndProcedueInRecepitsVoucher()'><b>checkValidationOFEditRuleWithWarnAndProcedueInRecepitsVoucher</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1289980804" onClick='toggleBox("Output-1289980804", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1289980804" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1289980804">
+Completed executing following method : RulesTest.checkValidationOFEditRuleWithWarnAndProcedueInRecepitsVoucher<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>204</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkValidationOFFOrmulaControlAtVoucherLevel()'><b>checkValidationOFFOrmulaControlAtVoucherLevel</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-869577296" onClick='toggleBox("Output-869577296", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-869577296" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-869577296">
+Completed executing following method : RulesTest.checkValidationOFFOrmulaControlAtVoucherLevel<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>22</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkViewOptionCreatedInPurchaseVoucherVAT()'><b>checkViewOptionCreatedInPurchaseVoucherVAT</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-855241571" onClick='toggleBox("Output-855241571", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-855241571" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-855241571">
+Completed executing following method : RulesTest.checkViewOptionCreatedInPurchaseVoucherVAT<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>32</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.checkVoucherLevelOnEnterRuleValidation()'><b>checkVoucherLevelOnEnterRuleValidation</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1495308210" onClick='toggleBox("Output-1495308210", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1495308210" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1495308210">
+Completed executing following method : RulesTest.checkVoucherLevelOnEnterRuleValidation<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.chekSavingRuleWithBeforeDelete()'><b>chekSavingRuleWithBeforeDelete</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1624358740" onClick='toggleBox("Output-1624358740", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1624358740" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1624358740">
+Completed executing following method : RulesTest.chekSavingRuleWithBeforeDelete<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>34</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.chekSavingRuleWithOnEdit()'><b>chekSavingRuleWithOnEdit</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-1360662085" onClick='toggleBox("Output-1360662085", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1360662085" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1360662085">
+Completed executing following method : RulesTest.chekSavingRuleWithOnEdit<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>50</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.RulesTest.chekSavingRuleWithOnEnter()'><b>chekSavingRuleWithOnEnter</b><br>Test class: com.focus.testcases.RulesTest<br/>
+<a href="#Output-722412783" onClick='toggleBox("Output-722412783", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-722412783" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-722412783">
+Completed executing following method : RulesTest.chekSavingRuleWithOnEnter<br/>
+Test Method resides in com.focus.testcases.RulesTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>50</td>
+<td>com.focus.testcases.RulesTest@47ef968d</td></tr>
+<tr>
+<td title='com.focus.testcases.URLBrowserTest.verifyBrowserOpen()'><b>verifyBrowserOpen</b><br>Test class: com.focus.testcases.URLBrowserTest<br/>
+<a href="#Output-1340057206" onClick='toggleBox("Output-1340057206", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1340057206" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1340057206">
+Completed executing following method : URLBrowserTest.verifyBrowserOpen<br/>
+Test Method resides in com.focus.testcases.URLBrowserTest<br/>
+Test Status: Pass<br/>
+About to begin executing following method : BaseEngine.afterMethodExecution<br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>com.focus.testcases.URLBrowserTest@5b87ed94</td></tr>
+</table><p>
+</body>
+</html>
